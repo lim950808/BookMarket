@@ -22,8 +22,8 @@ public class BookUpdateAction implements Command{
 		BoardDAO dao = BoardDAO.getInstance();
 		
 		//upload처리
-		String filename="";
-		String realFolder = "c:\\upload\\board";//웹 어플리케이션상의 절대 경로
+		String filename = "";
+		String realFolder = "c:\\Image";//웹 어플리케이션상의 절대 경로
 		int maxSize = 10 * 1024 * 1024;//5mb - 전송될 파일의 최대 크기
 		String encType = "utf-8";
 		

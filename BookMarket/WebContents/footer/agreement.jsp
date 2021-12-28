@@ -13,7 +13,7 @@
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-  <h1 id="company"><b>이용약관</b></h1>
+  <h2 id="company"><b>이용약관</b></h2>
   <hr>
 <pre>
 

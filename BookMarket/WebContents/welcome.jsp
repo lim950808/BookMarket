@@ -60,8 +60,8 @@
 </div>
 
 <div class="container mt-5">
-  <h1 class="display-6"><b>베스트상품</b></h1>
-  <p id="best_item">
+  <h2 id="best"><b>베스트상품</b></h2>
+  <hr>
 </div>
 
 <!-- Three columns of text below the carousel -->
@@ -123,8 +123,8 @@
   </div>
 
 <div class="container mt-5">
-  <h1 class="display-6"><b>신상품</b></h1>
-  <p id="rec_item">
+  <h2 id="new"><b>신상품</b></h2>
+  <hr>
 </div>
 
 <!-- Three columns of text below the carousel -->
@@ -186,8 +186,8 @@
   </div>
 
 <div class="container mt-5">
-  <h1 class="display-6"><b>추천상품</b></h1>
-  <p id="new_item">
+  <h2 id="recommend"><b>추천상품</b></h2>
+  <hr>
 </div>
 
 <!-- Three columns of text below the carousel -->
