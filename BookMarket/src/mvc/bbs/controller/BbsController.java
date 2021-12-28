@@ -59,6 +59,7 @@ public class BbsController extends HttpServlet {
 	    	  bbsCommandMap.put(command, actionCommand);  
 	      }
 	      
+	      System.out.println("--------------------------------");
 	      //출력
 	      Iterator itor = bbsCommandMap.keySet().iterator();
 	      while(itor.hasNext()) {

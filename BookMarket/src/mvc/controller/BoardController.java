@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import mvc.bbs.command.ActionCommand;
 import mvc.command.Command;
 import mvc.model.BoardDAO;
 import mvc.model.BoardDTO;
@@ -58,7 +59,14 @@ public class BoardController extends HttpServlet {
 	    	  Command actionCommand=(Command) action.newInstance();// new mvc.command.BoardUpdateAction();
 	    	  commandMap.put(command, actionCommand);  
 	      }
-
+	      System.out.println("--------------------------------");
+	      //출력
+	      Iterator itor = commandMap.keySet().iterator();
+	      while(itor.hasNext()) {
+	    	  String command = (String)itor.next();
+	    	 System.out.println(command+"="+((Command)commandMap.get(command)).getClass().getName());
+	    	 
+	      }
 	    }catch(Exception e) {
 	    	System.out.println("에러:"+e.getMessage());
 	    }

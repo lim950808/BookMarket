@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import dto.Product;
 //싱글톤으로 생성
@@ -46,12 +47,29 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 		listOfProducts.add(product1);
 		listOfProducts.add(product2);
 		listOfProducts.add(product3); */
+		
+		
 	}
 	
 	//상품 리스트 출력 메소드
 	public ArrayList<Product> getAllProducts() {
 		return listOfProducts;
 	}
+	
+	//상품 리스트 출력 메소드
+	//상품 id로 상품 상세정보 얻기
+		 public List<Product> getProductByCategory(String category) {
+			 List<Product> list = new ArrayList<Product>();
+		    for(int i=0;i<listOfProducts.size();i++) {
+		    	 Product product = listOfProducts.get(i);
+		    	 if(product !=null && product.getCategory()!=null && product.getCategory().equals(category)) {
+		    		   list.add(product);
+		    		 
+				 }
+			}
+		return list;
+		}
+		
 	
 	//상품 id로 상품 상세정보 얻기
 	 public Product getProductById(String productId) {
@@ -70,4 +88,15 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 	 public void addProduct(Product product) {
 		 listOfProducts.add(product);
 	 }
+
+	 public List<Product> getProductByCategory() {
+		 List<Product> list = new ArrayList<Product>();
+	    for(int i=0;i<listOfProducts.size();i++) {
+	    	 Product product = listOfProducts.get(i);
+	    	
+	    		   list.add(product);
+		}
+	return list;
+	}
+
 }

@@ -28,14 +28,14 @@
 <div class="container">
    <div>
      <ul>
-       <li><a href="javascript:location.href="list.do?category="프로그래밍 언어">프로그래밍 언어</a></li>
-       <li><a href="javascript:location.href="list.do?category="오피스 활용">오피스 활용</a></li>
-       <li><a href="javascript:location.href="list.do?category="OS/ 데이터베이스">OS/데이터베이스</a></li>
-       <li><a href="javascript:location.href="list.do?category="웹사이트">웹사이트</a></li>
-       <li><a href="javascript:location.href="list.do?category="게임">게임</a></li>
-       <li><a href="javascript:location.href="list.do?category="그래픽/디자인/멀티미디어">그래픽/디자인/멀티미디어</a></li>
-       <li><a href="javascript:location.href="list.do?category="네트워크/해킹/보안">네트워크/해킹/보안</a></li>
-       <li><a href="javascript:location.href="list.do?category="모바일 프로그래밍">모바일 프로그래밍</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="프로그래밍 언어">프로그래밍 언어</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="오피스 활용">오피스 활용</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="OS/데이터베이스">OS/데이터베이스</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="웹사이트">웹사이트</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="게임">게임</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="그래픽/디자인/멀티미디어">그래픽/디자인/멀티미디어</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="네트워크/해킹/보안">네트워크/해킹/보안</a></li>
+       <li><a href="javascript:location.href="BookListAction.do?category="모바일 프로그래밍">모바일 프로그래밍</a></li>
      </ul>
    </div>
    <div class="row" align="center">

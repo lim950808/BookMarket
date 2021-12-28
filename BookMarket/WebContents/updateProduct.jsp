@@ -8,7 +8,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./resources/js/validation.js"></script>
 <title><fmt:message key="updateTitle"/></title>
 </head>
@@ -25,7 +27,7 @@
 	<%
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-    String sql="select p_manufacturer, name from manufacturer";
+    String sql="select publisher, name from publisher";
 	
 	pstmt= conn.prepareStatement(sql);
     rs = pstmt.executeQuery();
@@ -37,7 +39,7 @@
 		System.out.println(s); */
 	%>
 	<%
-    sql="select p_category, name from category";
+    sql="select category, name from category";
 	pstmt = conn.prepareStatement(sql);
     rs = pstmt.executeQuery();
 	List<String> cateList = new ArrayList<String>();
@@ -50,7 +52,7 @@
 	<%
 		String productId = request.getParameter("id");
 	
-		sql = "select * from product where p_id = ?";
+		sql = "select * from product where productId = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, productId);
 		rs = pstmt.executeQuery();
