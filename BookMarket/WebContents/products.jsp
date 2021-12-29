@@ -24,6 +24,7 @@
      <h1 class="display-3">booklist</h1>
   </div>
 </div>
+<%--
 <div class="container">
    <div>
      <ul>
@@ -37,6 +38,8 @@
        <li><a href="javascript:location.href='BookListAction.do?category=모바일 프로그래밍'">모바일 프로그래밍</a></li>
      </ul>
    </div>
+   --%>
+    
    <div class="row" align="center">
    	<%--   <%@ include file="dbconn.jsp" %> --%>
     <%--   <% /* DB로부터 상품정보 리스트 얻기 */

@@ -67,7 +67,7 @@
         <th></th>
       </tr>
     </table>
-    <a href="./products.jsp" class="bnt bnt-secondary">&laquo; 다른 도서 둘러보기</a>
+    <a href="welcome.jsp" class="bnt bnt-secondary">&laquo; HOME</a>
   </div>
   <hr>
 </div>

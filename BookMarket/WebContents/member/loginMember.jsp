@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>Login</title>
 </head>
 <body>
- <jsp:include page="./menu.jsp"/>
+ <jsp:include page="../menu.jsp"/>
  <div class="jumbotron">
      <div class="container">
          <h1 class="display-3">로그인</h1>
@@ -13,7 +15,7 @@
  </div>
   <div class="container" align="center">
      <div class="col-md-4 col-md-offset-4">
-          <h3 class="form-signin-heading">Please sign in</h3>
+          <h3 class="form-signin-heading">로그인</h3>
           <%
           	 String error = request.getParameter("error");
               if(error!=null){
@@ -27,6 +29,7 @@
                   <label for="inputUserName" class="sr-only">User Name</label>
                   <input type="text" class="form-control" placeholder="ID" name="id" required autofocus>
               </div>
+              <br>
               <div class="form-group">
                  <label class="sr-only" for="inputPassword">Password</label>
                  <input type="password" class="form-control" placeholder="Password" name="password" required>

@@ -27,15 +27,13 @@ public class BookDAO {
 	  Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql="";
+		String sql = "";
 		
-		System.out.println("category::::"+category);
 		if(category==null ||category.length()==0) {//검색 조건이 파라미터로 넘어오지 않은 경우
 			sql = "SELECT * FROM bookmarket.product";	
 		}else { //검색 조건이 파라미터로 넘어온 경우 
 			sql = "SELECT * FROM bookmarket.product where category like concat('%',?,'%')";
 		 }
-		System.out.println("sql:"+sql);
 		
 		/*
 		 * //페이지 번호로 해당 페이지의 시작 글번호와 끝 글번호 구하기 int start = (pageNum-1)*limit; //예)3페이지
@@ -46,12 +44,10 @@ public class BookDAO {
 			//1.OracleDB 연결객체 생성
 			conn = DBConnection.getConnection();
 			if(category==null ||category.length()==0) {
-				System.out.println("a");
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
 			}else {
-				System.out.println("b");
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, category);
 				

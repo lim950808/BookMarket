@@ -32,21 +32,6 @@
 	java.sql.Timestamp timestamp = new java.sql.Timestamp(currentDatetime.getTime());
 %>
 
-<%-- 
-<%=id %><br>
-<%=name %><br>
-<%=password %><br>
-<%=gender %><br>
-<%=birth %><br>
-<%=mail %><br>
-<%=phone %><br>
-<%=zipCode %><br>
-<%=roadAddress %><br>
-<%=jibunAddress %><br>
-<%=detailAddress %><br>
-<%=extraAddress %>
---%>
-
 <!-- 데이터 셋 설정 -->
 <sql:setDataSource var = "dataSource" 
 				   url = "jdbc:mysql://localhost:3306/WebMarketDB" 

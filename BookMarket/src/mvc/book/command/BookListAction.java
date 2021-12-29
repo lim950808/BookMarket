@@ -26,12 +26,11 @@ public class BookListAction implements Command{
 			//DB억세스 객체 생성
 		//	ProductRepository dao = ProductRepository.getInstance();
 		   BookDAO dao = BookDAO.getInstance();
-		List<Product> bookList = new ArrayList<>();
+		   List<Product> bookList = new ArrayList<>();
 			
 			
 			
 			String category = request.getParameter("category");		
-			System.out.println("category:"+category);
 			
 			bookList = dao.getProductByCategory(category);
 			

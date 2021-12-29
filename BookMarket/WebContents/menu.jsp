@@ -29,19 +29,19 @@
       <c:choose>
   	    <c:when test="${empty sessionId}">
         <li class="nav-item">
-          <a class="nav-link text-dark" href="javascript:void(0)">로그인</a>
+          <a class="nav-link text-dark" href="<c:url value="/member/loginMember.jsp" />">로그인</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark">|</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="javascript:void(0)">회원가입</a>
+          <a class="nav-link text-dark" href="<c:url value="/member/addMember.jsp" />">회원가입</a>
         </li>
         </c:when>
   	    <c:otherwise>
   	    <li style="padding-top: 7px; color: white;">[${sessionScope.sessionId}님]</li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="javascript:void(0)">로그아웃</a>
+          <a class="nav-link text-dark" href="<c:url value="/member/logoutMember.jsp"/>">로그아웃</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark">|</a>
@@ -55,13 +55,13 @@
           <a class="nav-link text-dark">|</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="javascript:void(0)">게시판</a>
+          <a class="nav-link text-dark" href="<c:url value="/member/addMember.jsp" />">자유게시판</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark">|</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="javascript:void(0)">장바구니<span class="badge bg-secondary">0</span>
+          <a class="nav-link text-dark" href="../cart.jsp">장바구니 <span class="badge bg-secondary">0</span>
           </a>
         </li>
       </ul>

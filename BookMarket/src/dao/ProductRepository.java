@@ -23,31 +23,7 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 		product1.setPublishDate("2019-06-20");
 		product1.setDescription("문과생도 중고등학생도 직장인도 프로그래밍에 눈뜨게 만든 바로 그 책이 전면 개정판으로 새로 태어났다!");
 		product1.setUnitsInStock(1000);
-		product1.setFilename("");
-
-/*		Product product2 = new Product("A2001", "직장인을 위한 실무 엑셀", 18900);
-		product2.setPwriter("선양미");
-		product2.setCategory("오피스 활용");
-		product2.setPublisher("길벗");
-		product2.setPublishDate(2019-03-04);
-		product2.setDescription("Office 365, 엑셀 2010부터 2016 버전까지 모든 버전에서 사용 가능한 실무 예제로, 업무를 빠르게 처리할 수 있는 필수 팁만 쏙쏙 뽑아 알려준다.");
-		product2.setUnitsInStock(1000);
-		product2.setFilename("");
-		
-		Product product3 = new Product("A3001", "데이터 중심 애플리케이션 설계", 32400);
-		product3.setPwriter("마틴 클레프만");
-		product3.setCategory("OS/ 데이터베이스");
-		product3.setPublisher("위키북스");
-		product3.setPublishDate(2018-04-12);
-		product3.setDescription("어떤 선택이 애플리케이션에 적합한가? 이 유행어들을 얼마나 이해하고 있는가?");
-		product3.setUnitsInStock(1000);
-		product3.setFilename("");
-
-
-		listOfProducts.add(product1);
-		listOfProducts.add(product2);
-		listOfProducts.add(product3); */
-		
+		product1.setFilename("");	
 		
 	}
 	

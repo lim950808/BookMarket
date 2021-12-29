@@ -12,7 +12,7 @@
 <%@ include file="dbconn.jsp" %>
 <% request.setAttribute("rate", 5.0);%>
 <% double rate =(Double)request.getAttribute("rate");%>
-<%=rate %><br>
+<%--<%=rate %><br>--%>
 
 <%
 String id = request.getParameter("id");
@@ -117,15 +117,16 @@ function addToCart(){
          </p>
        <h3><%=rs.getString("pname") %></h3>
        <p><%=rs.getString("description") %>
-       <p><b>상품 코드 : </b><span class="badge badge-danger"><%=id%></span>
-       <p><b>제조사</b>:<%=rs.getString("publisher") %>
-       <p><b>분류</b>:<%=rs.getString("category") %>
-       <p><b>재고 수</b>:<%=rs.getLong("unitsInStock") %>
+       <p><b>상품 코드</b> : <%=id%>
+       <p><b>제조사</b> : <%=rs.getString("publisher") %>
+       <p><b>분류</b> : <%=rs.getString("category") %>
+       <p><b>재고 수</b> : <%=rs.getLong("unitsInStock") %>
        <h4><%=rs.getInt("unitPrice") %>원</h4>
        <p><form name="addForm" action="./addCart.jsp?id=<%=id%>" method="post">
           <div class="col-md-2">
           <input type="hidden" name="rate"  id="rate" value="<%=rate%>">
           <input type="number" name="qty" value="0" class="form-control input-md">
+          <br>
           </div>
           <a href="#" class="btn btn-info" onclick="addToCart()">상품주문 &raquo;</a>
           <a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
