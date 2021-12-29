@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductRepository;
 import dto.Product;
+import mvc.book.model.BookDAO;
 import mvc.command.Command;
 import mvc.model.BoardDAO;
 import mvc.model.BoardDTO;
@@ -23,18 +24,17 @@ public class BookListAction implements Command{
 		
 		//등록된 글 목록 가져오기
 			//DB억세스 객체 생성
-			ProductRepository dao = ProductRepository.getInstance();
-			List<Product> bookList = new ArrayList<>();
+		//	ProductRepository dao = ProductRepository.getInstance();
+		   BookDAO dao = BookDAO.getInstance();
+		List<Product> bookList = new ArrayList<>();
 			
 			
 			
-			String category = request.getParameter("category");
-			if(category==null || category.equals("")|| category.length()==0) {
-				bookList = dao.getProductByCategory();
-			}
-			
+			String category = request.getParameter("category");		
+			System.out.println("category:"+category);
 			
 			bookList = dao.getProductByCategory(category);
+			
 			
 			/*
 			 * //게시판 이동시 첫 페이지 설정 int pageNum=1; int limit = LISTCOUNT;//초기값 5
@@ -86,7 +86,7 @@ public class BookListAction implements Command{
 			request.setAttribute("booklist", bookList);
 			
 		 //이동할 view페이지 경로
-		 return "./board/list.jsp";
+		 return "/products.jsp";
 	}
 
 }

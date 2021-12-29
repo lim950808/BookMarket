@@ -20,7 +20,7 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 		product1.setPwriter("박응용");
 		product1.setCategory("프로그래밍 언어");
 		product1.setPublisher("이지스퍼블리싱");
-		product1.setPublishDate(2019-06-20);
+		product1.setPublishDate("2019-06-20");
 		product1.setDescription("문과생도 중고등학생도 직장인도 프로그래밍에 눈뜨게 만든 바로 그 책이 전면 개정판으로 새로 태어났다!");
 		product1.setUnitsInStock(1000);
 		product1.setFilename("");
