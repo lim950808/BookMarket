@@ -6,13 +6,15 @@
    String id = request.getParameter("id");
    String sQty = request.getParameter("qty");
    int qty = Integer.parseInt(sQty);
+   System.out.println("id= "+ id);
+   System.out.println("qty= "+ sQty);
    
  //넘어온 파라미터가 없으면 products.jsp로 이동처리
-   if(id == null || id.trim().equals("")) {
+   if(id == null || id.trim().equals("")){
  	   response.sendRedirect("products.jsp");
  	   return;
    }
-   String sql="select * from product where p_id=?";
+   String sql="select * from product where productId = ?";
    PreparedStatement pstmt=conn.prepareStatement(sql);
    pstmt.setString(1,id);
    ResultSet rs  = pstmt.executeQuery();
@@ -20,24 +22,26 @@
    Product goods =null;
    //id에 해당하는 상품정보 얻기 
    //상품정보없으면 에러페이지로 이동 처리
-   if(!rs.next()) { 
+   if(!rs.next()){ 
  	  response.sendRedirect("exceptionNoProductId.jsp");
-    }else {    
+    }else{    
    //상품등록리스트에서 상품정보 얻기
-      goods = new Product(id,rs.getString("p_name"),rs.getInt("p_unitPrice")); 
+   System.out.println("pname= "+ id);
+   System.out.println("unitPrice= "+ id);
+      goods = new Product(id,rs.getString("productId"),rs.getInt("unitPrice")); 
    }
   
   //세션으로부터 장바구니 정보 얻기
-  ArrayList<Product> cartList = (ArrayList<Product>)session.getAttribute("cartlist");
+  ArrayList<Product> cartList =(ArrayList<Product>)session.getAttribute("cartlist");
   Product goodsQnt = new Product();
   //장바구니에서 해당 id의 상품 삭제 처리
-  for(int i=0;i<cartList.size();i++) {
+  for(int i=0;i<cartList.size();i++){
 	   goodsQnt = cartList.get(i);
-	   if(goodsQnt.getProductId().equals(id)) {
+	   if(goodsQnt.getProductId().equals(id)){
 		  goodsQnt.setQuantity(qty);
 	   }
   }
-  
+  System.out.println("id= "+ id);
   //카트페이지로 이동하여 삭제후 내역확인
   //response.sendRedirect("cart.jsp");
 %>

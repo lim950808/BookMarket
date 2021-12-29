@@ -8,24 +8,24 @@
 %>
 <%--데이타 셋 설정 --%>
 <sql:setDataSource  var="dataSource"   
-      url="jdbc:mysql://localhost:3306/WebMarketDB"
-      user="director" password="director"
+      url="jdbc:mysql://localhost:3306/book"
+      user="book" password="1234"
       driver="com.mysql.cj.jdbc.Driver" />
       
 <%--id,password 에 맞는 회원정보를 db에서 추출 --%>
 <sql:query dataSource="${dataSource}" var="resultSet" >
-	select * from member where id=? and password=?
-	<sql:param value="<%=sessionId%>" />
-	<sql:param value="<%=currentPassword%>"/>
+  select * from member where cid=? and cpw=?
+  <sql:param value="<%=sessionId%>" />
+  <sql:param value="<%=currentPassword%>"/>
 </sql:query>
 
 <%--출력 결과 처리, session에 id정보 저장 후, 결과 페이지로 이동(get방식) --%>
 <c:forEach var="row" items="${resultSet.rows}" >
-	<sql:update dataSource="${dataSource}" var="result" >
-		update member set password=? where id=? 
-		<sql:param value="<%=newPassword%>"/>
-		<sql:param value="<%=sessionId%>" />
-	</sql:update>
-	<script>alert('비밀번호가 변경되었습니다.');</script>
-	<script>window.close();</script> 
+  <sql:update dataSource="${dataSource}" var="result" >
+  	update member set cpw=? where cid=? 
+    <sql:param value="<%=newPassword%>"/>
+    <sql:param value="<%=sessionId%>" />
+  </sql:update>
+  <script>alert('비밀번호가 변경되었습니다.');</script>
+  <script>window.close();</script> 
 </c:forEach>

@@ -80,4 +80,20 @@
     <url-pattern>*.go</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>BbController</servlet-name>
+    <servlet-class>mvc.bb.controller.BbController</servlet-class>
+    <init-param>
+      <param-name>BbconfigFile</param-name>
+      <param-value>
+        /WEB-INF/commandBbURI.properties
+      </param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BbController</servlet-name>
+    <url-pattern>*.bo</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

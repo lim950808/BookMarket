@@ -10,7 +10,7 @@
 %>
 <%--데이타 셋 설정 --%>
 <sql:setDataSource  var="dataSource"   
-      url="jdbc:mysql://localhost:3306/WebMarketDB"
+      url="jdbc:mysql://localhost:3306/BookMarket"
       user="director" password="director"
       driver="com.mysql.cj.jdbc.Driver" />
       

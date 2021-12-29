@@ -12,10 +12,10 @@
   
 //넘어온 파라미터가 없으면 products.jsp로 이동처리
   if(id == null || id.trim().equals("")){
-	   response.sendRedirect("products.jsp");
+	   response.sendRedirect("welcome.jsp");
 	   return;
   }
-  String sql="select * from product where p_id=?";
+  String sql="select * from product where productId=?";
   PreparedStatement pstmt=conn.prepareStatement(sql);
   pstmt.setString(1,id);
   ResultSet rs  = pstmt.executeQuery();
@@ -27,7 +27,7 @@
 	  response.sendRedirect("exceptionNoProductId.jsp");
    }else{    
   //상품등록리스트에서 상품정보 얻기
-     goods = new Product(id,rs.getString("p_name"),rs.getInt("p_unitPrice")); 
+     goods = new Product(id,rs.getString("pname"),rs.getInt("unitPrice")); 
   }
   
   //세션으로부터 장바구니 객체 얻기

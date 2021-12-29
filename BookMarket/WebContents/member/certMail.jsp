@@ -13,23 +13,23 @@
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<title>이메일 인증</title>
+<title>백두도서</title>
 <%
-	String email=request.getParameter("email").trim();
-    String password=request.getParameter("emailPassword").trim();
+String email=request.getParameter("email").trim();
+String password=request.getParameter("emailPassword").trim();
 %>
 </head>
 <body>    
 <%
    //비번문자생성
-     int[] arr = {(int)(Math.random()*92)+33,
+     int[] arr= {(int)(Math.random()*92)+33,
     		     (int)(Math.random()*92)+33,
     		     (int)(Math.random()*92)+33,
     		     (int)(Math.random()*92)+33,
     		     (int)(Math.random()*92)+33,
     		     (int)(Math.random()*92)+33
                };
-   String certString = "";
+   String certString="";
    for(int i=0;i<arr.length;i++)
 	   certString+=(char)(arr[i]);
    //System.out.println(certString);
@@ -47,9 +47,9 @@
  p.put("mail.smtp.ssl.trust","*"); //인증서 전부 신뢰
  
  //session 생성 및 MimeMessage 생성
- Session session2 = Session.getDefaultInstance(p,new javax.mail.Authenticator() {
-		String un = email;
-		String pw = password;
+ Session session2 =Session.getDefaultInstance(p,new javax.mail.Authenticator() {
+		String un=email;
+		String pw=password;
 		protected  PasswordAuthentication getPasswordAuthentication() {
 			return new PasswordAuthentication(un, pw);
 		}

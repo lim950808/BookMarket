@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="UTF-8">
 <title>배송 정보</title>
@@ -19,11 +20,7 @@ function listDelivery(){
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
-   <div class="container">
-   		<h1 class="display-3">배송 정보</h1>
-   </div>
-</div>
+
 <%@include file="dbconn.jsp" %>
 <%
     String sql="select max(ifnull(seq,'')) seq ,max(ifnull(nickname,'')) nickName, "
@@ -35,15 +32,24 @@ function listDelivery(){
 	ResultSet rs=pstmt.executeQuery();
 	if(rs.next()){
 %>
-<div class="container">
-   <form name="frm" action="./processShippingInfo.jsp" class="form-horizontal" method="post">
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<h2 id="company"><b>배송정보</b></h2>
+<hr>
+<pre>
+
+</pre>
+
+   <form name="frm"action="./processShippingInfo.jsp" class="form-horizontal" method="post" >
          <input type="hidden" name="cartId" value="<%=request.getParameter("cartId") %>">
          <div class="form-group row">
              <label class="col-sm-2">배송지 명</label>
              <div class="col-sm-3">
                  <input name="name" type="text" class="form-control" value="<%=rs.getString("nickName")!=null?rs.getString("nickName"):""%>">
-                 <input type="button" value="배송지등록" class="btn btn-primary" onclick="registerDelivery()">
-                 <input type="button" value="배송지리스트" class="btn btn-success" onclick="listDelivery()">
+                 <input type="button" value="배송지등록" class="btn btn-outline-primary" onclick="registerDelivery()">
+                 <input type="button" value="배송지리스트" class="btn btn-outline-secondary" onclick="listDelivery()">
              </div>
          </div>
          <div class="form-group row">
@@ -62,7 +68,7 @@ function listDelivery(){
              <label class="col-sm-2">우편번호</label>
              <div class="col-sm-3">
                  <input name="zipcode" id="zipcode" type="text" class="form-control" value="<%=rs.getString("zipcode")!=null?rs.getString("zipcode"):""%>">
-                 <input type="button" onclick="Postcode()" value="우편번호 찾기"><br>
+                 <input type="button" onclick="Postcode()" class="btn btn-outline-secondary" value="우편번호 찾기"><br>
              </div>
          </div>
           <div class="form-group row">
@@ -93,14 +99,21 @@ function listDelivery(){
          <div class="form-group row">
              <div class="col-sm-offset-2 col-sm-10">
                 <a href="./cart.jsp?cartId=<%=request.getParameter("cartId")%>" 
-                             class="btn btn-secondary" role="button">이전</a>
-                <input type="submit" class="btn btn-primary" value="등록">
-                <a href="./checkOutCancelled.jsp" class="btn btn-secondary" role="button">취소</a>             
+                             class="btn btn-outline-secondary" role="button">이전</a>
+                <input type="submit" class="btn btn-outline-primary" value="등록">
+                <a href="./checkOutCancelled.jsp" class="btn btn-outline-secondary" role="button">취소</a>             
              </div>
          </div>
     <% }%>
    </form>
+
 </div>
+<div class="col-sm-1"></div>
+</div>
+</div>
+<pre>
+
+</pre> 
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

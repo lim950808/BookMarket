@@ -20,7 +20,7 @@ public class Product implements Serializable {
 	
 	//생성자
 	public Product() {}
-	public Product(String pname, String productId, Integer unitPrice) {
+	public Product(String productId, String pname, Integer unitPrice) {
 		this.pname = pname;
 		this.productId = productId;
 		this.unitPrice = unitPrice;

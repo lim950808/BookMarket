@@ -54,51 +54,59 @@ if(cookies!=null){
 <%=shipping_detailAddress%><br> 
 <%=shipping_extraAddress%><br> --%>
 <jsp:include page="menu.jsp"/>
-<div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">주문 완료</h1>
-    </div>
-</div>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <h2 id="company"><b>주문 완료</b></h2>
+  <hr>
+<pre>
+
+</pre>
+
 <div class="container" >
-   <h2 class="alert alert-success">주문해주셔서 감사합니다.</h2>
+   <h2 class="alert alert-danger">주문해주셔서 감사합니다.</h2>
    <p> 주문은 <%=shipping_shippingDate %>에 배송될 예정입니다!
    <p> 주문번호:<%=shipping_cartId %>
 </div>
  <div class="container">
-  <p><a href="./products.jsp" class="btn btn-secondary">&laquo; 상품 목록</a>
+  <p><a href="welcome.jsp" class="btn btn-outline-secondary">&laquo; HOME</a>
  </div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+</div>
 <!--쿠키 삭제하기  -->
 <%
-  //세션에서 장바구니 삭제
-  session.invalidate();
-  //쿠키 삭제
-  for(int i=0;i<cookies.length;i++){
-		Cookie thisCookie = cookies[i];
-		String n=thisCookie.getName();
-		if(n.equals("Shipping_cartId"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_name"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_shippingDate"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_country"))
-			thisCookie.setMaxAge(0);
-		
-		if(n.equals("Shipping_zipCode"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_roadAddress"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_jibunAddress"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_detailAddress"))
-			thisCookie.setMaxAge(0);
-		if(n.equals("Shipping_extraAddress"))
-			thisCookie.setMaxAge(0); 
-		
-		//응답객체에 실어서 브라우저로 전송 - 삭제처리
-		response.addCookie(thisCookie);
-	}
+for(int i=0;i<cookies.length;i++){
+	Cookie thisCookie = cookies[i];
+	String n=thisCookie.getName();
+	if(n.equals("Shipping_cartId"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_name"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_shippingDate"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_country"))
+		thisCookie.setMaxAge(0);
+	
+	if(n.equals("Shipping_zipCode"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_roadAddress"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_jibunAddress"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_detailAddress"))
+		thisCookie.setMaxAge(0);
+	if(n.equals("Shipping_extraAddress"))
+		thisCookie.setMaxAge(0);
+	response.addCookie(thisCookie);
+}
+System.out.println("로그찍음");
 %> 
+<pre>
+
+</pre> 
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

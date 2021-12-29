@@ -7,15 +7,25 @@
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-<title>Change Password</title>
+<title>비밀번호 변경하기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
- <jsp:include page="/menu.jsp"/>
- <div class="jumbotron">
-     <div class="container">
-         <h1 class="display-3">Change Password</h1>
-     </div>
- </div>
+<%@ include file="../menu.jsp" %>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <h2 id="company"><b>비밀번호 변경</b></h2>
+  <hr>
+<pre>
+
+</pre>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
   <div class="container" align="center">
      <div class="col-md-4 col-md-offset-4">
           <h3 class="form-signin-heading">Change Password</h3>
@@ -25,22 +35,33 @@
                   <input type="hidden" class="form-control" placeholder="ID" name="id" value="<%=sessionId%>" required autofocus>
               </div>
               <div class="form-group">
-                 <label class="col-sm-7" for="inputPassword">기존 비밀번호</label>
+                 <label class="col-sm-7" for="inputPassword">현재 비밀번호</label>
                  <input type="password" class="form-control" placeholder="Password" name="currentPassword" required>
               </div>
                <div class="form-group">
                  <label class="col-sm-7" for="inputPassword">새로운 비밀번호</label>
-                 <input type="password" class="form-control" placeholder="Password" name="newPassword" required>
+                 <input type="password" class="form-control" placeholder="New Password" name="newPassword" required>
               </div>
                <div class="form-group">
-                 <label class="col-sm-7" for="inputPassword">새로운 비밀번호(확인)</label>
-                 <input type="password" class="form-control" placeholder="Password" name="newPasswordConfirm" required>
+                 <label class="col-sm-7" for="inputPassword">비밀번호 확인</label>
+                 <input type="password" class="form-control" placeholder="Confirm Password" name="newPasswordConfirm" required>
               </div>
-              <button class="btn btn btn-lg btn-success btn-block" type="submit">변경</button>
-              <button class="btn btn btn-lg btn-secondary btn-block" type="reset">초기화</button>
-              <button class="btn btn btn-lg btn-danger btn-block" type="button" onclick="window.close()">닫기</button>
+              <button class="btn btn btn-outline-primary " type="submit">변경하기</button>
+              <button class="btn btn btn-outline-secondary " type="reset">초기화</button>
+              <button class="btn btn btn-outline-success " type="button" 
+                        onclick="window.close()">닫기</button>
           </form>
      </div>
   </div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+</div>
+<pre>
+
+
+
+</pre>
+<%@ include file="../footer.jsp" %> 
 </body>
 </html>
