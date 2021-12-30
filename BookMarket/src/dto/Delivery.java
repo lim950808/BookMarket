@@ -12,12 +12,11 @@ public class Delivery implements Serializable{
   private String roadAddress;
   private String jibunAddress;
   private String detailAddress;
-  private String extraAddress;
   
 public Delivery() {}
 
 public Delivery(int seq, String name, String country, String zipcode, String roadAddress, String jibunAddress,
-		String detailAddress, String extraAddress) {
+		String detailAddress) {
 	this.seq = seq;
 	this.name = name;
 	this.country = country;
@@ -25,7 +24,6 @@ public Delivery(int seq, String name, String country, String zipcode, String roa
 	this.roadAddress = roadAddress;
 	this.jibunAddress = jibunAddress;
 	this.detailAddress = detailAddress;
-	this.extraAddress = extraAddress;
 }
 
 public int getSeq() {
@@ -69,14 +67,6 @@ public String getDetailAddress() {
 }
 public void setDetailAddress(String detailAddress) {
 	this.detailAddress = detailAddress;
-}
-public String getExtraAddress() {
-	return extraAddress;
-}
-public void setExtraAddress(String extraAddress) {
-	this.extraAddress = extraAddress;
-}
-
-  
+}  
   
 }

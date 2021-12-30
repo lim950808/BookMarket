@@ -5,7 +5,7 @@
 	String sessionId = (String)session.getAttribute("sessionId");
 %>
 <%-- <%=sessionId%><br> --%>
-<sql:setDataSource var="dataSource" url="jdbc:mysql://localhost:3306/WebMarketDB"
+<sql:setDataSource var="dataSource" url="jdbc:mysql://localhost:3306/BookMarket"
       			   user="director" password="director" driver="com.mysql.cj.jdbc.Driver" />
       			   
 <sql:update dataSource="${dataSource}" var="resultSet">
@@ -15,5 +15,5 @@
 
 <c:if test="${resultSet >= 1}">
 	<c:import var="url" url="logoutMember.jsp"/>
-	<c:redirect url="resultMember.jsp"/>
+	<c:redirect url="resultMember.jsp?msg=3"/>
 </c:if>

@@ -26,8 +26,6 @@
   Cookie detailAddress 
   = new Cookie("Shipping_detailAddress",URLEncoder.encode(request.getParameter("detailAddress"),"utf-8"));
  
-  Cookie extraAddress 
-  = new Cookie("Shipping_extraAddress",URLEncoder.encode(request.getParameter("extraAddress"),"utf-8"));
   //유효기간 설정
   cartId.setMaxAge(24*60*60);//하루 
   name.setMaxAge(24*60*60);//하루 
@@ -37,7 +35,6 @@
   roadAddress.setMaxAge(24*60*60);//하루 
   jibunAddress.setMaxAge(24*60*60);//하루 
   detailAddress.setMaxAge(24*60*60);//하루 
-  extraAddress.setMaxAge(24*60*60);//하루 
   
   //브라우저로 전송
   response.addCookie(cartId);
@@ -48,7 +45,6 @@
   response.addCookie(roadAddress);
   response.addCookie(jibunAddress);
   response.addCookie(detailAddress);
-  response.addCookie(extraAddress);
   
   //페이지 이동
   response.sendRedirect("orderConfirmation.jsp");

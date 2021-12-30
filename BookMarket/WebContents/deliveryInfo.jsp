@@ -3,9 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8">
-<title>배송지 상세보기</title>
+<title>백두도서</title>
 </head>
 <body>
 <jsp:include page="menu.jsp" />
@@ -16,8 +18,8 @@
 </div>
 <%@include file="dbconn.jsp" %>
 <%
-    String seq=request.getParameter("seq");
-    String sql="select * from delivery where seq=?";
+    String seq = request.getParameter("seq");
+    String sql = "select * from delivery where seq = ?";
    
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1,seq);
@@ -26,7 +28,7 @@
 	if(rs.next()){
 %>
 <div class="container">
-   <form action="./processDeliveryUpdate.jsp" class="form-horizontal" method="post">
+   <form action="processDeliveryUpdate.jsp" class="form-horizontal" method="post">
          <input type="hidden" name="seq" value="<%=seq%>">
          <div class="form-group row">
              <label class="col-sm-2">배송지명</label>
@@ -64,12 +66,6 @@
              <label class="col-sm-2">상세주소</label>
              <div class="col-sm-3">
                  <input name="detailAddress"  id="detailAddress" type="text" class="form-control" value="<%=rs.getString("detailAddress")%>">
-             </div>
-         </div>
-         <div class="form-group row">
-             <label class="col-sm-2">참고항목</label>
-             <div class="col-sm-3">
-                 <input name="extraAddress"id="extraAddress" type="text" class="form-control" value="<%=rs.getString("extraAddress")%>">
              </div>
          </div>
          <div class="form-group row">

@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>주문 취소</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text.javascript" src="./resources/js/validation.js"></script>
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
@@ -15,7 +18,7 @@
    <h2 class="alert alert-danger">주문이 취소되었습니다.</h2>
 </div>
  <div class="container">
-  <p><a href="./products.jsp" class="btn btn-secondary">&laquo; 상품 목록</a>
+  <p><a href="welcome.jsp" class="btn btn-secondary">&laquo; HOME</a>
  </div>
 <jsp:include page="footer.jsp"/>
 </body>

@@ -1,21 +1,23 @@
 <%@page import="java.sql.ResultSet"%><%@page import="java.sql.PreparedStatement"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>배송지 리스트</title></head>
 <body>
 <script>
 function removeDeliveryInfo(seq){
 	if(confirm("정말 삭제하시겠습니까?")){
-	  location.href="removeDeliveryInfo.jsp?seq="+seq;
+	  location.href="removeDeliveryInfo.jsp?seq= " + seq;
 	}else{
 		return false;
 	}
 }
 </script>
 <script>
-function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, detailAddress,extraAddress){
-  	//alert(seq+","+name+","+country+","+zipcode+","+roadAddress+","+jibunAddress+","+detailAddress+","+extraAddress);
+function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, detailAddress){
+  	//alert(seq+","+name+","+country+","+zipcode+","+roadAddress+","+jibunAddress+","+detailAddress");
   	//오프너의 요소에 값 전송
   	opener.document.frm.name.value=name;
   	opener.document.frm.country.value=country;
@@ -23,7 +25,6 @@ function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, d
   	opener.document.frm.roadAddress.value=roadAddress;
   	opener.document.frm.jibunAddress.value=jibunAddress;
   	opener.document.frm.detailAddress.value=detailAddress;
-  	opener.document.frm.name.extraAddress=extraAddress;
   	//자신은 닫기
   	//self.close();
   	window.close();
@@ -48,7 +49,7 @@ function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, d
   <div style="padding-top:50px;">
     <table class="table table-hover">
       <tr>
-        <th>순번</th><th>배송지명</th><th>국가</th><th>우편번호</th><th>도로명</th><th>지번</th><th>상세주소</th><th colspan="2">참고항목</th>
+        <th>순번</th><th>배송지명</th><th>국가</th><th>우편번호</th><th>도로명</th><th>지번</th><th>상세주소</th></th>
       </tr>
       <%
       while(rs.next()){
@@ -61,10 +62,9 @@ function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, d
           <td><%=rs.getString(5) %></td>
           <td><%=rs.getString(6) %></td>
           <td><%=rs.getString(7) %></td>
-          <td><%=rs.getString(8) %></td>
           <td><a href="javascript:removeDeliveryInfo('<%=rs.getInt(1)%>')" 
                    class="badge badge-danger">삭제</a>
-              <a href="javascript:selectDeliveryInfo('<%=rs.getInt(1)%>','<%=rs.getString(2) %>','<%=rs.getString(3) %>','<%=rs.getString(4) %>','<%=rs.getString(5) %>','<%=rs.getString(6) %>','<%=rs.getString(7) %>','<%=rs.getString(8) %>')" 
+              <a href="javascript:selectDeliveryInfo('<%=rs.getInt(1)%>','<%=rs.getString(2) %>','<%=rs.getString(3) %>','<%=rs.getString(4) %>','<%=rs.getString(5) %>','<%=rs.getString(6) %>','<%=rs.getString(7) %>')" 
                    class="badge badge-primary">선택</a>     
                    </td>
           </tr>    	 
@@ -79,7 +79,7 @@ function selectDeliveryInfo(seq,name,country,zipcode,roadAddress,jibunAddress, d
         <th></th>
       </tr>
     </table>
-    <a href="./products.jsp" class="bnt bnt-secondary">&laquo; 쇼핑 계속하기</a>
+    <a href="welcome.jsp" class="bnt bnt-secondary">&laquo; Home</a>
   </div>
   <hr>
 </div>

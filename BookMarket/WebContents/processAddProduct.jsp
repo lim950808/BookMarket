@@ -10,15 +10,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>백두도서</title>
 </head>
 <body>
 <%@ include file="dbconn.jsp" %>
 <%
 	request.setCharacterEncoding("UTF-8");
      //upload처리
-     String filename="";
-     String realFolder = "c:\\upload";//웹 어플리케이션상의 절대 경로
+     String filename = "";
+     String realFolder = "c:\\Images";//웹 어플리케이션상의 절대 경로
      int maxSize = 5 * 1024 * 1024;//5mb - 전송될 파일의 최대 크기
      String encType = "utf-8";
      
@@ -32,13 +32,15 @@
    //request -> multi로 변경
    //String productId = multi.getParameter("productId");
     
-   String name = multi.getParameter("name");
-   String unitPrice = multi.getParameter("unitPrice");
-   String description = multi.getParameter("description");
-   String manufacturer = multi.getParameter("manufacturer");
-   String category = multi.getParameter("category");
-   String unitsInStock = multi.getParameter("unitsInStock");
-   String condition = multi.getParameter("condition");
+	String productId = multi.getParameter("productId");
+	String pname = multi.getParameter("pname");
+	String pwriter = multi.getParameter("pwriter");
+	String unitPrice = multi.getParameter("unitPrice");
+	String category = multi.getParameter("category");
+	String publisher = multi.getParameter("publisher");
+	String publishDate = multi.getParameter("publishDate");
+	String description = multi.getParameter("description");
+	String unitsInStock = multi.getParameter("unitsInStock");
   
    Integer price;
    if(unitPrice==null || unitPrice.isEmpty()) price=0;
@@ -56,7 +58,7 @@
    //상품등록
    
    //seq Max값 추출
-   String sql = "select cast(substr(max(p_id), 2) as signed integer) + 1 from product";
+   String sql = "select cast(substr(max(productId), 2) as signed integer) + 1 from product";
    
    PreparedStatement pstmt = conn.prepareStatement(sql);
    ResultSet rs = pstmt.executeQuery();
@@ -69,24 +71,24 @@
    sql = "insert into product values(?,?,?,?,?,?,?,?,?)";
    pstmt = conn.prepareStatement(sql);
    
-   int i = 0;
-   pstmt.setString(++i, seq);
-   pstmt.setString(++i, name);
-   pstmt.setInt(++i, price);
-   pstmt.setString(++i, description);
-   pstmt.setString(++i, manufacturer);
-   pstmt.setString(++i, category);
-   pstmt.setLong(++i, stock);
-   pstmt.setString(++i, condition);
-   pstmt.setString(++i, fileName);
+    int i = 0;
+    pstmt.setString(++i,pname);
+	pstmt.setInt(++i,price);
+	pstmt.setString(++i,description);
+	pstmt.setString(++i,publisher);
+	pstmt.setString(++i,category);
+	pstmt.setLong(++i,stock);
+	pstmt.setString(++i,publishDate);
+	pstmt.setString(++i,fileName);
+	pstmt.setString(++i,productId);
    
    pstmt.executeUpdate();
    
    if(pstmt != null) pstmt.close();
    if(conn != null) conn.close();
    
-   //상품 리스트로 이동
-   response.sendRedirect("products.jsp");
+   //Home로 이동
+   response.sendRedirect("welcome.jsp");
 %>
 </body>
 </html>

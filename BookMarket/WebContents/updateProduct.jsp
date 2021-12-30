@@ -64,33 +64,33 @@
          <a href="logout.jsp" class="btn btn-sm btn-success pull-right">logout</a>
        </div>
 			<div class="col-md-5">
-				<img src="/resources/upload/<%=rs.getString("p_filename")%>" alt="image" style="width: 100%" />
+				<img src="c:\\Images<%=rs.getString("filename")%>" alt="image" style="width: 100%" />
 			</div>
 			<div class="col-md-7">
-				<form name="newProduct" action="./processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
+				<form name="newProduct" action="processUpdateProduct.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 					<div class="form-group row">
 						<label class="col-sm-2">도서번호</label>
 						<div class="col-sm-3">
-							<input type="text" id="productId" name="productId" class="form-control" value='<%=rs.getString("p_id")%>' disabled>
-							<input type="hidden" id="productId" name="productId" value='<%=rs.getString("p_id")%>'>
+							<input type="text" id="productId" name="productId" class="form-control" value='<%=rs.getString("productId")%>' disabled>
+							<input type="hidden" id="productId" name="productId" value='<%=rs.getString("productId")%>'>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">도서 제목</label>
 						<div class="col-sm-3">
-							<input type="text" id="name" name="name" class="form-control" value="<%=rs.getString("p_name")%>">
+							<input type="text" id="name" name="name" class="form-control" value="<%=rs.getString("pname")%>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">저자</label>
 						<div class="col-sm-3">
-							<input type="text" id="writer" name="writer" class="form-control" value="<%=rs.getString("p_writer")%>">
+							<input type="text" id="writer" name="writer" class="form-control" value="<%=rs.getString("pwriter")%>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">판매가</label>
 						<div class="col-sm-3">
-							<input type="text" id="unitPrice" name="unitPrice" class="form-control" value="<%=rs.getInt("p_unitPrice")%>">
+							<input type="text" id="unitPrice" name="unitPrice" class="form-control" value="<%=rs.getInt("unitPrice")%>">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -120,19 +120,19 @@
 					<div class="form-group row">
 						<label class="col-sm-2">출판일자</label>
 						<div class="col-sm-3">
-							<input type="text" id="publishDate" name="publishDate" class="form-control" value="<%=rs.getInt("p_publishDate")%>">
+							<input type="text" id="publishDate" name="publishDate" class="form-control" value="<%=rs.getInt("publishDate")%>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">한 줄 소개</label>
 						<div class="col-sm-5">
-							<textarea name="description" cols="50" rows="2" class="form-control"><%=rs.getString("p_description")%></textarea>
+							<textarea name="description" cols="50" rows="2" class="form-control"><%=rs.getString("description")%></textarea>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">재고 수</label>
 						<div class="col-sm-3">
-							<input type="text" id="unitsInStock" name="unitsInStock" class="form-control" value="<%=rs.getLong("p_unitsInStock")%>">
+							<input type="text" id="unitsInStock" name="unitsInStock" class="form-control" value="<%=rs.getLong("unitsInStock")%>">
 						</div>
 					</div>
 					<div class="form-group row">

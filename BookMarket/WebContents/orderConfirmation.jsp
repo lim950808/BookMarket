@@ -13,8 +13,7 @@
     String shipping_zipCode=""; 
     String shipping_roadAddress=""; 
     String shipping_jibunAddress=""; 
-    String shipping_detailAddress=""; 
-    String shipping_extraAddress="";
+    String shipping_detailAddress="";
     
     //쿠키정보 얻기
     Cookie[] cookies = request.getCookies();
@@ -37,9 +36,7 @@
     		if(n.equals("Shipping_jibunAddress"))
     			shipping_jibunAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");
     		if(n.equals("Shipping_detailAddress"))
-    			shipping_detailAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");
-    		if(n.equals("Shipping_extraAddress"))
-    			shipping_extraAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");  
+    			shipping_detailAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8"); 
     	}
     }
 %>
@@ -53,7 +50,9 @@
 <%=shipping_detailAddress%><br> 
 <%=shipping_extraAddress%><br> --%>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>주문정보</title>
 </head>
 <body>
@@ -71,7 +70,7 @@
             <div class="col-4" align="left">
                <strong>배송주소</strong><br>이름: <%=shipping_name%><br>
                우편번호: <%=shipping_zipCode %><br>
-               주소: <%=shipping_roadAddress %><%=shipping_detailAddress %>(<%=shipping_extraAddress%>)<br>
+               주소: <%=shipping_roadAddress %><%=shipping_detailAddress %><br>
             </div>
             <div class="col-4" align="right">
                 <p><em>예상 배송일: </em><%=shipping_shippingDate %></p>

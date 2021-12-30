@@ -3,7 +3,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <title>장바구니</title>
 <%
   String cartId = session.getId();
@@ -20,9 +22,9 @@
   <div class="row">
      <table width="100%">
         <tr>
-          <td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>" 
+          <td align="left"><a href="deleteCart.jsp?cartId=<%=cartId%>" 
                              class="btn btn-danger">삭제하기</a></td>
-          <td align="right"><a href="./shippingInfo.jsp?cartId=<%=cartId%>" class="btn btn-success">주문하기</a></td>         
+          <td align="right"><a href="shippingInfo.jsp?cartId=<%=cartId%>" class="btn btn-success">주문하기</a></td>         
         </tr>
      </table>
   </div>
@@ -33,8 +35,7 @@
       </tr>
       <%
       	 int sum=0;//합계
-      	 ArrayList<Product> cartList 
-      	           =(ArrayList<Product>)session.getAttribute("cartlist");
+      	 ArrayList<Product> cartList = (ArrayList<Product>)session.getAttribute("cartlist");
       	 //세션에 장바구니 정보가 없으면 신규 생성
       	 if(cartList ==null){ cartList =new ArrayList<Product>();}
       	 
@@ -54,7 +55,7 @@
           </form>    
            </td>
           <td><%=total %></td>
-          <td><a href="./removeCart.jsp?id=<%=product.getProductId()%>" 
+          <td><a href="removeCart.jsp?id=<%=product.getProductId()%>" 
                    class="badge badge-danger">삭제</a></td>
           </tr>    	 
       	<% }

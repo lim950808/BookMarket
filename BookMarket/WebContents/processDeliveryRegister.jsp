@@ -7,7 +7,7 @@
 <jsp:setProperty property="*" name="deliveryInfo"/>
 <%@ include file="dbconn.jsp" %>
 <%
-  String sql="insert into delivery values(null,?,?,?,?,?,?,?)";
+  String sql="insert into delivery values(null,?,?,?,?,?,?)";
   PreparedStatement pstmt =conn.prepareStatement(sql);
   pstmt.setString(1,deliveryInfo.getName());
   pstmt.setString(2,deliveryInfo.getCountry());
@@ -15,7 +15,6 @@
   pstmt.setString(4,deliveryInfo.getRoadAddress());
   pstmt.setString(5,deliveryInfo.getJibunAddress());
   pstmt.setString(6,deliveryInfo.getDetailAddress());
-  pstmt.setString(7,deliveryInfo.getExtraAddress());
   
   int result = pstmt.executeUpdate();
   if(result>0){

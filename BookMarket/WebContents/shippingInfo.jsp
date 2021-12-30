@@ -3,8 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <meta charset="UTF-8">
 <title>배송 정보</title>
 <script>
@@ -26,7 +27,7 @@ function listDelivery(){
     String sql="select max(ifnull(seq,'')) seq ,max(ifnull(nickname,'')) nickName, "
               +" max(ifnull(country,'')) country, max(ifnull(zipcode,'')) zipcode, "
               +" max(ifnull(roadAddress,'')) roadAddress, max(ifnull(jibunAddress,'')) jibunAddress, "
-              +" max(ifnull(detailAddress,'')) detailAddress, max(ifnull(extraAddress,'')) extraAddress "
+              +" max(ifnull(detailAddress,'')) detailAddress "
     		  +" from delivery where seq=1";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	ResultSet rs=pstmt.executeQuery();
@@ -42,7 +43,7 @@ function listDelivery(){
 
 </pre>
 
-   <form name="frm"action="./processShippingInfo.jsp" class="form-horizontal" method="post" >
+   <form name="frm"action="processShippingInfo.jsp" class="form-horizontal" method="post" >
          <input type="hidden" name="cartId" value="<%=request.getParameter("cartId") %>">
          <div class="form-group row">
              <label class="col-sm-2">배송지 명</label>
@@ -90,18 +91,13 @@ function listDelivery(){
                  <input name="detailAddress"  id="detailAddress" type="text" class="form-control" value="<%=rs.getString("detailAddress")!=null?rs.getString("detailAddress"):""%>">
              </div>
          </div>
-         <div class="form-group row">
-             <label class="col-sm-2">참고항목</label>
-             <div class="col-sm-3">
-                 <input name="extraAddress"id="extraAddress" type="text" class="form-control" value="<%=rs.getString("extraAddress")!=null?rs.getString("extraAddress"):""%>">
-             </div>
-         </div>
+         
          <div class="form-group row">
              <div class="col-sm-offset-2 col-sm-10">
-                <a href="./cart.jsp?cartId=<%=request.getParameter("cartId")%>" 
+                <a href="cart.jsp?cartId=<%=request.getParameter("cartId")%>" 
                              class="btn btn-outline-secondary" role="button">이전</a>
                 <input type="submit" class="btn btn-outline-primary" value="등록">
-                <a href="./checkOutCancelled.jsp" class="btn btn-outline-secondary" role="button">취소</a>             
+                <a href="checkOutCancelled.jsp" class="btn btn-outline-secondary" role="button">취소</a>             
              </div>
          </div>
     <% }%>

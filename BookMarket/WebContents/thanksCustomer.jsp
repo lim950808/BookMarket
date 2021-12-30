@@ -3,7 +3,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <%
@@ -15,13 +17,12 @@ String shipping_zipCode="";
 String shipping_roadAddress=""; 
 String shipping_jibunAddress=""; 
 String shipping_detailAddress=""; 
-String shipping_extraAddress="";	
 //쿠키정보 얻기
 Cookie[] cookies = request.getCookies();
 if(cookies!=null){
 	for(int i=0;i<cookies.length;i++){
 		Cookie thisCookie = cookies[i];
-		String n=thisCookie.getName();
+		String n = thisCookie.getName();
 		if(n.equals("Shipping_cartId"))
 			shipping_cartId = URLDecoder.decode(thisCookie.getValue(),"utf-8");
 		if(n.equals("Shipping_name"))
@@ -29,8 +30,7 @@ if(cookies!=null){
 		if(n.equals("Shipping_shippingDate"))
 			shipping_shippingDate = URLDecoder.decode(thisCookie.getValue(),"utf-8");
 		if(n.equals("Shipping_country"))
-			shipping_country = URLDecoder.decode(thisCookie.getValue(),"utf-8");
-		
+			shipping_country = URLDecoder.decode(thisCookie.getValue(),"utf-8");		
 		if(n.equals("Shipping_zipCode"))
 			shipping_zipCode = URLDecoder.decode(thisCookie.getValue(),"utf-8");
 		if(n.equals("Shipping_roadAddress"))
@@ -39,20 +39,10 @@ if(cookies!=null){
 			shipping_jibunAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");
 		if(n.equals("Shipping_detailAddress"))
 			shipping_detailAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");
-		if(n.equals("Shipping_extraAddress"))
-			shipping_extraAddress = URLDecoder.decode(thisCookie.getValue(),"utf-8");  
 	}
 }
 %>
-<%-- <%=shipping_cartId%><br> 
-<%=shipping_name%><br>
-<%=shipping_shippingDate%><br> 
-<%=shipping_country%><br>
-<%=shipping_zipCode%><br> 
-<%=shipping_roadAddress%><br> 
-<%=shipping_jibunAddress%><br> 
-<%=shipping_detailAddress%><br> 
-<%=shipping_extraAddress%><br> --%>
+
 <jsp:include page="menu.jsp"/>
 <div class="container mt-5">
 <div class="row">
@@ -65,7 +55,7 @@ if(cookies!=null){
 </pre>
 
 <div class="container" >
-   <h2 class="alert alert-danger">주문해주셔서 감사합니다.</h2>
+   <h2 class="alert alert-primary">주문해주셔서 감사합니다.</h2>
    <p> 주문은 <%=shipping_shippingDate %>에 배송될 예정입니다!
    <p> 주문번호:<%=shipping_cartId %>
 </div>
@@ -88,8 +78,7 @@ for(int i=0;i<cookies.length;i++){
 	if(n.equals("Shipping_shippingDate"))
 		thisCookie.setMaxAge(0);
 	if(n.equals("Shipping_country"))
-		thisCookie.setMaxAge(0);
-	
+		thisCookie.setMaxAge(0);	
 	if(n.equals("Shipping_zipCode"))
 		thisCookie.setMaxAge(0);
 	if(n.equals("Shipping_roadAddress"))
@@ -98,8 +87,7 @@ for(int i=0;i<cookies.length;i++){
 		thisCookie.setMaxAge(0);
 	if(n.equals("Shipping_detailAddress"))
 		thisCookie.setMaxAge(0);
-	if(n.equals("Shipping_extraAddress"))
-		thisCookie.setMaxAge(0);
+	
 	response.addCookie(thisCookie);
 }
 System.out.println("로그찍음");
