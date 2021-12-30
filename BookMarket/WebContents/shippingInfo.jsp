@@ -91,7 +91,9 @@ function listDelivery(){
                  <input name="detailAddress"  id="detailAddress" type="text" class="form-control" value="<%=rs.getString("detailAddress")!=null?rs.getString("detailAddress"):""%>">
              </div>
          </div>
-         
+         <pre>
+
+		 </pre> 
          <div class="form-group row">
              <div class="col-sm-offset-2 col-sm-10">
                 <a href="cart.jsp?cartId=<%=request.getParameter("cartId")%>" 

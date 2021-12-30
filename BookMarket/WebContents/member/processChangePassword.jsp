@@ -8,8 +8,8 @@
 %>
 <%--데이타 셋 설정 --%>
 <sql:setDataSource  var="dataSource"   
-      url="jdbc:mysql://localhost:3306/book"
-      user="book" password="1234"
+      url="jdbc:mysql://localhost:3306/BookMarket"
+      user="director" password="director"
       driver="com.mysql.cj.jdbc.Driver" />
       
 <%--id,password 에 맞는 회원정보를 db에서 추출 --%>

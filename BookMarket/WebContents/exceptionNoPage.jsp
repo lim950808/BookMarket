@@ -37,7 +37,7 @@
 <div align="center" class="container">
   <p><%=request.getRequestURL() %><!-- 요청페이지 경로명 -->
   <p><a style ="color:while; background-color:DodgerBlue;"
-   href="welcome.jsp" class="btn btn-secondary">Home &raquo;</a>
+   href="./welcome.jsp" class="btn btn-secondary">Home &raquo;</a>
 </div>
 <div class="col-sm-1"></div>
 </div>

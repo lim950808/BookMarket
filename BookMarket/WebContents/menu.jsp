@@ -60,8 +60,7 @@
           <a class="nav-link text-dark">|</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="../cart.jsp">장바구니 <span class="badge bg-secondary">0</span>
-          </a>
+          <a class="nav-link text-dark" href="./cart.jsp">장바구니</a>
         </li>
       </ul>
 </nav>
@@ -177,27 +176,27 @@
         </li>
 </nav>
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<!-- <div class="modal" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <!-- Modal Header -->
+      Modal Header
       <div class="modal-header">
         <h4 class="modal-title">이벤트 안내</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-      <!-- Modal body -->
+      Modal body
       <div class="modal-body">
         죄송합니다. 이벤트 준비 중에 있습니다.
       </div>
 
-      <!-- Modal footer -->
+      Modal footer
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">확인</button>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 </body>
 </html>

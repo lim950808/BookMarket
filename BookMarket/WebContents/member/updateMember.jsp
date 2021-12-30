@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
 function selectDomain(obj){
 	document.newMember.mail2.value=obj.value;
@@ -37,8 +42,8 @@ function checkForm(){
 		alert("아이디는 문자로 시작해주세요");
 		form.id.focus();
 		form.id.value="";
-		return false; */
-	}
+		return false; 
+	}*/
 	
 	if(!regExpName.test(name)){
 		alert("이름은 한글만 입력해주세요!");
@@ -99,21 +104,11 @@ function changePasswordForm(){
 }
 </script>
 
-<script>
-$(document).ready(function(){
-	console.log('first:',isConfirm);
-});
-</script>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <%
 	String sessionId = (String)session.getAttribute("sessionId");
 %>
-<%=sessionId %>
-${sessionId}
+<%-- <%=sessionId %> --%>
+<%-- ${sessionId} --%>
 <%--데이타 소스 설정 --%>
 <sql:setDataSource  var="dataSource"   
       url="jdbc:mysql://localhost:3306/BookMarket"
@@ -121,7 +116,7 @@ ${sessionId}
       driver="com.mysql.cj.jdbc.Driver" />
 <%-- db에서 sessionId에 해당하는 회원 정보 추출 --%>      
 <sql:query var="resultSet" dataSource="${dataSource}">
- select * from member where cid=?
+ select * from member where cid = ?
  <sql:param value="${sessionId}"/>
 </sql:query>      
 <title>백두도서</title>
@@ -141,13 +136,18 @@ ${sessionId}
 </pre>
   <c:forEach var="row" items="${resultSet.rows}">
      <c:set var="mail" value="${row.cmail}"/>
-     <c:set var="mail1" value="${cmail.split('@')[0]}"/>
-     <c:set var="mail2" value="${cmail.split('@')[1]}"/>
-    
-     <c:set var="phone" value="${row.phone}"/>
-     <c:set var="phone1" value="${cphone.split('-')[0]}"/>
-     <c:set var="phone2" value="${cphone.split('-')[1]}"/>
-     <c:set var="phone3" value="${cphone.split('-')[2]}"/>
+     <c:set var="mail1" value="${mail.split('@')[0]}"/>
+     <c:set var="mail2" value="${mail.split('@')[1]}"/>
+     
+     <c:set var="birth" value="${row.cbday}"/>
+     <c:set var="year" value="${birth.split('/')[0]}"/>
+     <c:set var="month" value="${birth.split('/')[1]}"/>
+     <c:set var="day" value="${birth.split('/')[2]}"/>
+     
+     <c:set var="phone" value="${row.cphone}"/>
+     <c:set var="phone1" value="${phone.split('-')[0]}"/>
+     <c:set var="phone2" value="${phone.split('-')[1]}"/>
+     <c:set var="phone3" value="${phone.split('-')[2]}"/>
      
     <div class="container">
        <form name="newMember" class="form-hotizontal" action="processUpdateMember.jsp" 
@@ -155,64 +155,64 @@ ${sessionId}
        <div class="form-group row">
               <label class="col-sm-2">아이디</label>
               <div class="col-sm-3">
-                   <input name="cid" type="text" class="form-control" placeholder="id" value="${row.cid}" readonly>
+                   <input name="cid" type="text" class="form-control" placeholder="아이디" value="${row.cid}" readonly>
               </div>
         </div>
         
              <div class="form-group row">
-              <label class="col-sm-2">성명</label>
+              <label class="col-sm-2">이름</label>
               <div class="col-sm-3">
-                   <input name="cname" type="text" class="form-control" placeholder="name" required value="${row.cname}">
+                   <input name="cname" type="text" class="form-control" value="${row.cname}" required>
               </div>
         </div>
         
         <div class="form-group row">
               <label class="col-sm-2">비밀번호</label>
               <div class="col-sm-3">
-                   <input name="cpw" type="password" class="form-control" placeholder="password" required>
+                   <input name="cpw" type="password" class="form-control" placeholder="비밀번호" required>
                    <input type="button" value="비밀번호변경"  class="btn btn-outline-success" onclick="changePasswordForm()">
               </div>
         </div>
         
         <div class="form-group row">
-              <label class="col-sm-2">비밀번호확인</label>
+              <label class="col-sm-2">비밀번호(확인)</label>
               <div class="col-sm-3">
-                   <input name="password_confirm" type="password" class="form-control" placeholder="password" required>
+                   <input name="password_confirm" type="password" class="form-control" placeholder="비밀번호(확인)" required>
               </div>
         </div>
    
         <div class="form-group row">
               <label class="col-sm-2">생일</label>
               <div class="col-sm-4">
-                   <input type="text" name="birthyy" maxlength="4" placeholder="년(4자)" size="6" required>
+                   <input type="text" name="birthyy" maxlength="4" placeholder="년(4자)" size="6" required value="${year}">
                    <select name="birthmm" required>
                    	<option value="">월</option>
-                   	<option value="01">1</option>
-                   	<option value="02">2</option>
-                   	<option value="03">3</option>
-                   	<option value="04">4</option>
-                   	<option value="05">5</option>
-                   	<option value="06">6</option>
-                   	<option value="07">7</option>
-                   	<option value="08">8</option>
-                   	<option value="09">9</option>
-                   	<option value="10">10</option>
-                   	<option value="11">11</option>
-                   	<option value="12">12</option>
+                   	<option value="01" <c:if test="${month.equals('01')}"><c:out value="selected"/></c:if>>1</option>
+                   	<option value="02" <c:if test="${month.equals('02')}"><c:out value="selected"/></c:if>>2</option>
+                   	<option value="03" <c:if test="${month.equals('03')}"><c:out value="selected"/></c:if>>3</option>
+                   	<option value="04" <c:if test="${month.equals('04')}"><c:out value="selected"/></c:if>>4</option>
+                   	<option value="05" <c:if test="${month.equals('05')}"><c:out value="selected"/></c:if>>5</option>
+                   	<option value="06" <c:if test="${month.equals('06')}"><c:out value="selected"/></c:if>>6</option>
+                   	<option value="07" <c:if test="${month.equals('07')}"><c:out value="selected"/></c:if>>7</option>
+                   	<option value="08" <c:if test="${month.equals('08')}"><c:out value="selected"/></c:if>>8</option>
+                   	<option value="09" <c:if test="${month.equals('09')}"><c:out value="selected"/></c:if>>9</option>
+                   	<option value="10" <c:if test="${month.equals('10')}"><c:out value="selected"/></c:if>>10</option>
+                   	<option value="11" <c:if test="${month.equals('11')}"><c:out value="selected"/></c:if>>11</option>
+                   	<option value="12" <c:if test="${month.equals('12')}"><c:out value="selected"/></c:if>>12</option>
                    </select>
-                   <input type="text" name="birthdd" maxlength="2" placeholder="일" size="4" required>
+                   <input type="text" name="birthdd" maxlength="2" placeholder="일" size="4"  value="${day}" required>
               </div>
         </div>
         
        <div class="form-group row">
              <label class="col-sm-2">이메일</label>
              <div class="col-sm-10">
-                <input type="text" name="cmail1" maxlength="50" required value="${cmail1}"> @
-                <input type="text" name="cmail2" maxlength="50" required value="${cmail2}">
+                <input type="text" name="mail1" maxlength="50" required value="${mail1}"> @
+                <input type="text" name="mail2" maxlength="50" required value="${mail2}">
                  <select name="mail2_select" onchange="selectDomain(this)">
                     <option disabled="disabled" selected="selected">선택</option>
                     <option>naver.com</option>
-                    <option>kakao.com</option>
+                    <option>daum.net</option>
                     <option>gmail.com</option>
                     <option>nate.com</option>
                     <option value="">직접입력</option>
@@ -223,15 +223,15 @@ ${sessionId}
        <div class="form-group row">
          <label class="col-sm-2">전화번호</label>
          <div class="col-sm-5">
-               <select name="cphone1" required>
-		              <option value="010" <c:if test="${cphone1.equals('010')}"><c:out value="selected"/></c:if> >010</option>
-		              <option value="011" <c:if test="${cphone1.equals('011')}"><c:out value="selected"/></c:if> >011</option>
-		              <option value="016" <c:if test="${cphone1.equals('016')}"><c:out value="selected"/></c:if> >016</option>
-		              <option value="017" <c:if test="${cphone1.equals('017')}"><c:out value="selected"/></c:if> >017</option>
-		              <option value="019" <c:if test="${cphone1.equals('019')}"><c:out value="selected"/></c:if> >019</option>
+               <select name="phone1" required>
+		              <option value="010" <c:if test="${phone1.equals('010')}"><c:out value="selected"/></c:if> >010</option>
+		              <option value="011" <c:if test="${phone1.equals('011')}"><c:out value="selected"/></c:if> >011</option>
+		              <option value="016" <c:if test="${phone1.equals('016')}"><c:out value="selected"/></c:if> >016</option>
+		              <option value="017" <c:if test="${phone1.equals('017')}"><c:out value="selected"/></c:if> >017</option>
+		              <option value="019" <c:if test="${phone1.equals('019')}"><c:out value="selected"/></c:if> >019</option>
 		           </select>
-				- <input maxlength="4" size="4" name="cphone2" required value="${cphone2}" > -
-				<input maxlength="4" size="4" name="cphone3" required value="${cphone3}">
+				- <input maxlength="4" size="4" name="phone2" required value="${phone2}" > -
+				<input maxlength="4" size="4" name="phone3" required value="${phone3}">
          </div>
        </div>
   
@@ -239,7 +239,7 @@ ${sessionId}
              <label class="col-sm-2">우편번호</label>
              <div class="col-sm-3">
                  <input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="우편번호" value="${row.zipcode}" required>
-                 <input type="button" onclick="Postcode()" value="우편번호 찾기"><br>
+                 <input type="button" class="btn btn-outline-secondary" onclick="Postcode()" value="우편번호 찾기"><br>
              </div>
          </div>
           <div class="form-group row">
@@ -264,7 +264,7 @@ ${sessionId}
         
        <div class="form-gorup row">
           <div class="col-sm-offset-2 col-sm-10">
-               <input type="submit" class="btn btn-outline-primary" value="수정">
+               <input type="submit" class="btn btn-outline-success" value="수정">
                <input type="reset"  class="btn btn-outline-secondary" value="취소" onclick="reset()">
                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">회원탈퇴</button>
           </div>
@@ -291,7 +291,7 @@ ${sessionId}
         </button>
       </div>
       <div class="modal-body">
-        탈퇴하시겠습니까?
+        정말 탈퇴하시겠습니까?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>

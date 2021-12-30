@@ -12,9 +12,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>백두도서</title>
 <%
 String email=request.getParameter("email").trim();
@@ -66,7 +64,7 @@ String password=request.getParameter("emailPassword").trim();
 	 msg.setFrom(from);//이메일 발신자
 	 InternetAddress to = new InternetAddress(email);//수신자
 	 msg.setRecipient(Message.RecipientType.TO, to);//수신자
-	 msg.setSubject("회원가입인증메일-WebMarket","UTF-8");//이메일 제목
+	 msg.setSubject("회원가입인증메일-BookMarket","UTF-8");//이메일 제목
 	 msg.setText(certString,"UTF-8");//이메일 내용
      msg.setHeader("content-Type", "text/html");//이메일 헤더
      //전송 처리

@@ -57,12 +57,16 @@
 </head>
 <body>
 <jsp:include page="menu.jsp"/>
-<div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">주문정보</h1>
-    </div>
-</div>
-<div class="container col-8 alert alert-info" >
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <h2 id="company"><b>주문 정보</b></h2>
+  <hr>
+<pre>
+
+</pre>
+<div class="container col-8 alert alert-secondary" >
     <div class="text-center">
          <h1>영수증</h1>
     </div>
@@ -80,7 +84,7 @@
       <table class="table table-hover">
         <tr>
          <th class="text-center">상품</th>
-         <th class="text-center">#</th>
+         <th class="text-center">갯수</th>
          <th class="text-center">가격</th>
          <th class="text-center">총합</th>
         </tr>
@@ -106,7 +110,7 @@
          <td></td>
          <td></td>
          <td class="text-right"><strong>총액: </strong></td>
-         <td class="text-center text-danger"><strong><%=sum%></strong></td>
+         <td class="text-center text-danger"><strong><%=sum%>원</strong></td>
         </tr> 
       </table>
         
@@ -116,6 +120,9 @@
       <a href="./checkOutCancelled.jsp" class="btn btn-secondary" role="button">취소</a> 
     </div>    
 </div>
+<pre>
+
+</pre> 
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

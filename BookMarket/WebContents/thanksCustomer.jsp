@@ -57,7 +57,7 @@ if(cookies!=null){
 <div class="container" >
    <h2 class="alert alert-primary">주문해주셔서 감사합니다.</h2>
    <p> 주문은 <%=shipping_shippingDate %>에 배송될 예정입니다!
-   <p> 주문번호:<%=shipping_cartId %>
+   <p> 주문번호: <%=shipping_cartId %>
 </div>
  <div class="container">
   <p><a href="welcome.jsp" class="btn btn-outline-secondary">&laquo; HOME</a>
@@ -90,7 +90,6 @@ for(int i=0;i<cookies.length;i++){
 	
 	response.addCookie(thisCookie);
 }
-System.out.println("로그찍음");
 %> 
 <pre>
 

@@ -18,7 +18,7 @@
    <h2 class="alert alert-danger">주문이 취소되었습니다.</h2>
 </div>
  <div class="container">
-  <p><a href="welcome.jsp" class="btn btn-secondary">&laquo; HOME</a>
+  <p><a href="welcome.jsp" class="btn btn-secondary">&laquo; Home</a>
  </div>
 <jsp:include page="footer.jsp"/>
 </body>

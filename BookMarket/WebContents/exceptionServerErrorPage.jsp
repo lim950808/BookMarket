@@ -36,7 +36,7 @@
 </div>
 <div align = "center" class="container">
   <p><%=request.getRequestURL() %><!-- 요청페이지 경로명 -->
-  <p><a style ="color:while; background-color:DodgerBlue;" href="welcome.jsp" class="btn btn-secondary">Home &raquo;</a>
+  <p><a style ="color:while; background-color:DodgerBlue;" href="./welcome.jsp" class="btn btn-secondary">Home &raquo;</a>
 </div>
 <%@ include file="footer.jsp" %>
 </body>

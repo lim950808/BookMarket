@@ -87,11 +87,15 @@ function addToCart(){
 </head>
 <body>
 <%@ include file="menu.jsp" %>
-<div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">상품 정보</h1>
-    </div>
-</div>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <h2 id="company"><b>상품 정보</b></h2>
+  <hr>
+<pre>
+
+</pre>
 <%
 	sql="select * from product where productId = ?";
     pstmt = conn.prepareStatement(sql);
@@ -128,14 +132,18 @@ function addToCart(){
           <input type="number" name="qty" value="0" class="form-control input-md">
           <br>
           </div>
-          <a href="#" class="btn btn-info" onclick="addToCart()">상품주문 &raquo;</a>
-          <a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
-          <a href="./products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
+          	<a href="BookListAction.do?category=<%=rs.getString("category")%>" 
+                 class="btn btn-secondary" role="button">&laquo; 이전</a>
+          	<a href="#" class="btn btn-success" onclick="addToCart()">상품주문 &raquo;</a>
+          	<a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
           </form>
      </div>
   </div>
    <%} %>
 </div>
+<pre>
+
+</pre>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -13,18 +13,23 @@
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-<div class="jumbotron">
-   <div class="container">
-       <h1 class="display-3">장바구니</h1>
-   </div>
-</div>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  <h2 id="company"><b>장바구니</b></h2>
+  <hr>
+<pre>
+
+</pre>
 <div class="container">
   <div class="row">
      <table width="100%">
         <tr>
-          <td align="left"><a href="deleteCart.jsp?cartId=<%=cartId%>" 
-                             class="btn btn-danger">삭제하기</a></td>
-          <td align="right"><a href="shippingInfo.jsp?cartId=<%=cartId%>" class="btn btn-success">주문하기</a></td>         
+          <td align="right">
+          	<a href="deleteCart.jsp?cartId=<%=cartId%>" class="btn btn-danger">삭제하기</a>
+          	<a href="shippingInfo.jsp?cartId=<%=cartId%>" class="btn btn-success">주문하기</a>
+          </td>         
         </tr>
      </table>
   </div>
@@ -51,7 +56,7 @@
           <form action="updateCartQty.jsp">
             <input type="number" id="qty" name="qty" value="<%=product.getQuantity() %>">
             <input type="hidden" name="id" value="<%=product.getProductId()%>">
-              <input type="submit" class="btn btn-primary btn-sm" value="수정">
+              <input type="submit" class="btn btn-secondary btn-sm" value="수정">
           </form>    
            </td>
           <td><%=total %></td>
@@ -68,7 +73,9 @@
         <th></th>
       </tr>
     </table>
-    <a href="welcome.jsp" class="bnt bnt-secondary">&laquo; HOME</a>
+    <div class="container">
+  		<p><a href="welcome.jsp" class="btn btn-outline-secondary">&laquo; HOME</a>
+ 	</div>
   </div>
   <hr>
 </div>
