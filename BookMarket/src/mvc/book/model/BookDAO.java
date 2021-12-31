@@ -41,7 +41,6 @@ public class BookDAO {
 		 * index +9; //예)21+9=30, 1+9=10
 		 */		
 		try {
-			//1.OracleDB 연결객체 생성
 			conn = DBConnection.getConnection();
 			if(category==null ||category.length()==0) {
 				pstmt = conn.prepareStatement(sql);
@@ -54,7 +53,6 @@ public class BookDAO {
 				rs = pstmt.executeQuery();
 			}
 			while(rs.next()) {
-				System.out.println("x");
 				//DB로부터 결과 레코드를 하나씩 가져와서 boardDTO에 담은 후 리스트에 저장하기
 				Product book = new Product();
 				book.setProductId(rs.getString(1));

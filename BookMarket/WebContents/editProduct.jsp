@@ -9,9 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
 <meta charset="UTF-8">
-<fmt:setLocale value='<%=request.getParameter("language") %>'/>
 <fmt:bundle basename="resourceBundle.message">
 <title><fmt:message key="editTitle"/></title>
 <script>
@@ -25,7 +23,7 @@ function deleteConfirm(id){
 <script>
 $(document).ready(function(){
 	$('#deleteModal').click(function(){
-		alert($('#pid').val());
+		alert($('#productId').val());
 		alert("클릭");
 	});
 	
@@ -43,38 +41,35 @@ $(document).ready(function(){
   </div>
 </div>
 <div class="container">
-	<div class="text-right">
-         <a href="?language=ko&edit=update">Korean</a> | <a href="?language=en&edit=update">English</a>
-   </div>
    <div class="row" align="center">
     <%@ include file="dbconn.jsp" %>
      <%  /* DB로 부터 상품 정보 리스트 얻기 */
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "select * from product order by p_id";
+        String sql = "select * from product order by productId";
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
         while(rs.next()){   
       %>
       <div class="col-md-4">
-        <img src="/resources/upload/<%=rs.getString("p_fileName")%>"  style="width:100%">
-        <h3><%=rs.getString("p_name") %></h3>
-        <p><%=rs.getString("p_description") %></p>
-        <p><fmt:formatNumber value='<%=rs.getInt("p_unitPrice") %>'/>원</p>
+        <img src="/resources/upload/<%=rs.getString("fileName")%>"  style="width:100%">
+        <h3><%=rs.getString("pname") %></h3>
+        <p><%=rs.getString("description") %></p>
+        <p><fmt:formatNumber value='<%=rs.getInt("unitPrice") %>'/>원</p>
         <!-- 수정페이지로 이동, 링크태그 이동은 get방식 이동 -->
         <p><%
         	  if(edit.equals("update")){
             %>
-            <a href="./updateProduct.jsp?id=<%=rs.getString("p_id") %>"
+            <a href="./updateProduct.jsp?id=<%=rs.getString("productId") %>"
                class="btn btn-success" role="button"><fmt:message key="buttonEdit"/> &raquo;</a>		  
         </p>
         </div>	
         	<%
         	  } else if(edit.equals("delete")){
             %>
-            <a href="#" onclick='deleteConfirm("<%=rs.getString("p_id")%>")' 
+            <a href="#" onclick='deleteConfirm("<%=rs.getString("productId")%>")' 
                class="btn btn-danger" role="button" data-toggle="modal" data-target="#myModal"><fmt:message key="buttonDelete"/> &raquo;</a>
-             <input type="hidden" id="pid" value="<%=rs.getString("p_id")%>">                 
+             <input type="hidden" id="pid" value="<%=rs.getString("productId")%>">                 
             <div class="container">
  
 

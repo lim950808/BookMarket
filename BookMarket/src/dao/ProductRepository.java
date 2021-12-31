@@ -65,7 +65,8 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 	 public void addProduct(Product product) {
 		 listOfProducts.add(product);
 	 }
-
+	 
+	 //카테고리별로 products 보여주기
 	 public List<Product> getProductByCategory() {
 		 List<Product> list = new ArrayList<Product>();
 	    for(int i=0;i<listOfProducts.size();i++) {

@@ -68,7 +68,6 @@
 </script>
 
 <body>
-<fmt:setLocale value='<%=request.getParameter("language") %>'/>
 <fmt:bundle basename="resourceBundle.message">
 <jsp:include page="menu.jsp"/>
 <div class="jumbotron">
@@ -177,9 +176,6 @@
 
 <hr>
 <jsp:include page="footer.jsp"/>
-</body>
-</html>
-
 <script>
 	function readImage(input) {
 	    // 인풋 태그에 파일이 있는 경우
@@ -200,3 +196,6 @@
 	const inputImage = document.getElementById("input-image")
 	inputImage.addEventListener("change", e => {readImage(e.target)})
 </script>
+</body>
+</html>
+

@@ -20,8 +20,7 @@
 
 </pre>
 <center>
- <img src = "https://cdn.notefolio.net/img/ed/2d/ed2d2fa31e2682043a55f7f4fd170137fb677fc7b22dab1b931c46192df6b03e_v1.jpg" width = "800" height ="500"
- border = "3"></center>
+ <img src = "https://cdn.notefolio.net/img/ed/2d/ed2d2fa31e2682043a55f7f4fd170137fb677fc7b22dab1b931c46192df6b03e_v1.jpg" width = "800" height ="500" border = "3"></center>
 <pre>
 
 </pre>

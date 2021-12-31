@@ -15,7 +15,6 @@
 <title><fmt:message key="updateTitle"/></title>
 </head>
 <body>
-<fmt:setLocale value='<%=request.getParameter("language") %>'/>
 <fmt:bundle basename="resourceBundle.message">
 <jsp:include page="menu.jsp" />
 	<div class="jumbotron">
@@ -27,7 +26,7 @@
 	<%
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-    String sql="select publisher, name from publisher";
+    String sql = "select publisher, name from publisher";
 	
 	pstmt= conn.prepareStatement(sql);
     rs = pstmt.executeQuery();
@@ -35,19 +34,16 @@
 	while(rs.next()){
 		list.add(rs.getString(1)+"-"+rs.getString(2));
 	}
-	/* for(String s:list)
-		System.out.println(s); */
 	%>
 	<%
-    sql="select category, name from category";
+    sql = "select category, name from category";
 	pstmt = conn.prepareStatement(sql);
     rs = pstmt.executeQuery();
 	List<String> cateList = new ArrayList<String>();
 	while(rs.next()){
 		cateList.add(rs.getString(1)+"-"+rs.getString(2));
 	}
-/* 	 for(String s:cateList)
-		System.out.println(s);  */
+
 	%>
 	<%
 		String productId = request.getParameter("id");

@@ -72,6 +72,7 @@
    pstmt = conn.prepareStatement(sql);
    
     int i = 0;
+	pstmt.setString(++i,productId);
     pstmt.setString(++i,pname);
 	pstmt.setInt(++i,price);
 	pstmt.setString(++i,description);
@@ -80,7 +81,6 @@
 	pstmt.setLong(++i,stock);
 	pstmt.setString(++i,publishDate);
 	pstmt.setString(++i,fileName);
-	pstmt.setString(++i,productId);
    
    pstmt.executeUpdate();
    
