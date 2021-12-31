@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text.javascript" src="./resources/js/validation.js"></script>
 <title>addProduct</title>
 </head>
@@ -95,13 +95,13 @@
 	       <label class="col-sm-2"><fmt:message key="pname"/></label>
 	       <div class="col-sm-3">
 	       <%--페이지 출력시 name태그에 자동 으로 커서이동 처리 autofocus() --%>
-	         <input type="text" name="name" class="form-control"  autofocus required>
+	         <input type="text" name="name" class="form-control" autofocus required>
 	       </div>
 	    </div>
 	   <div class="form-group row">
 			<label class="col-sm-2"><fmt:message key="pwriter"/></label>
 			<div class="col-sm-3">
-				<input type="text" name="writer" id="writer" class="form-control" required>
+				<input type="text" name="pwriter" id="pwriter" class="form-control" required>
 			</div>
 		</div>
 	  <div class="form-group row">
@@ -111,7 +111,7 @@
 	       </div>
 	   </div>
 	   <%
-		PreparedStatement pstmt = conn.prepareStatement("select p_publisher, name from publisher");
+		PreparedStatement pstmt = conn.prepareStatement("select publisher, name from publisher");
 		ResultSet rs = pstmt.executeQuery();
 	   %>
 	  <div class="form-group row">
@@ -119,7 +119,7 @@
 	       <div class="col-sm-3">
 		       <select name="category" class="form-control" required>
 		       		<%
-			       		pstmt = conn.prepareStatement("select p_category, name from category");
+			       		pstmt = conn.prepareStatement("select category, name from category");
 			    		rs = pstmt.executeQuery();
 		       			while(rs.next()) {
 		       				out.print("<option value='" + rs.getString(1) + "'>" + rs.getString(2) + "</option>");

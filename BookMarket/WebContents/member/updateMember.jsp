@@ -129,7 +129,7 @@ function changePasswordForm(){
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-  <h2 id="company"><b>회원 수정</b></h2>
+  <h2 id="company"><b>회원정보 수정</b></h2>
   <hr>
 <pre>
 
@@ -155,7 +155,7 @@ function changePasswordForm(){
        <div class="form-group row">
               <label class="col-sm-2">아이디</label>
               <div class="col-sm-3">
-                   <input name="cid" type="text" class="form-control" placeholder="아이디" value="${row.cid}" readonly>
+                   <input name="cid" type="text" class="form-control" value="${row.cid}" readonly>
               </div>
         </div>
         
@@ -169,7 +169,7 @@ function changePasswordForm(){
         <div class="form-group row">
               <label class="col-sm-2">비밀번호</label>
               <div class="col-sm-3">
-                   <input name="cpw" type="password" class="form-control" placeholder="비밀번호" required>
+                   <input name="cpw" type="password" class="form-control" placeholder="Password" required>
                    <input type="button" value="비밀번호변경"  class="btn btn-outline-success" onclick="changePasswordForm()">
               </div>
         </div>
@@ -177,7 +177,7 @@ function changePasswordForm(){
         <div class="form-group row">
               <label class="col-sm-2">비밀번호(확인)</label>
               <div class="col-sm-3">
-                   <input name="password_confirm" type="password" class="form-control" placeholder="비밀번호(확인)" required>
+                   <input name="password_confirm" type="password" class="form-control" placeholder="Password Confirm" required>
               </div>
         </div>
    

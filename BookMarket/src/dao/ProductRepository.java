@@ -34,7 +34,7 @@ private ArrayList<Product> listOfProducts = new ArrayList<>();
 	}
 	
 	//상품 리스트 출력 메소드
-	//상품 id로 상품 상세정보 얻기
+	//상품 category로 상품 상세정보 얻기
 		 public List<Product> getProductByCategory(String category) {
 			 List<Product> list = new ArrayList<Product>();
 		    for(int i=0;i<listOfProducts.size();i++) {

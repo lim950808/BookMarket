@@ -10,7 +10,7 @@ function selectDomain(obj){
 <script>
 function checkForm(){
  if(document.newMember.password.value!=document.newMember.password_confirm.value){
-	 alert("비밀번호와 비밀번호확인 값이 서로 다릅니다!");
+	 alert("비밀번호를 확인해주세요!");
 	 document.newMember.password.value="";
 	 document.newMember.password_confirm.value="";
 	 document.newMember.password.focus();
@@ -110,9 +110,9 @@ function confirm(){
 	var cert1 = document.getElementById("cert").value;
 	var cert2= document.getElementById("cert_confirm").value;
 	if(cert1.length==0 || cert2.length==0){
-		alert("인증확인요망");
+		alert("인증확인 요망");
 	}else if(cert1!=cert2){
-		alert("인증확인요망");
+		alert("인증확인 요망");
 	}else{
 		alert("인증이 완료되었습니다.");
 		isConfirm=true;
@@ -146,7 +146,7 @@ function confirm(){
         <div class="form-group row">
               <label class="col-sm-2">아이디</label>
               <div class="col-sm-3">
-                   <input name="id" type="text" class="form-control" placeholder="id" required>
+                   <input name="id" type="text" class="form-control" placeholder="Id" required>
                     <input type="button" value="아이디 중복검사"  class="btn btn-outline-success" onclick="idChk()">
               </div>
         </div>
@@ -154,20 +154,20 @@ function confirm(){
         <div class="form-group row">
               <label class="col-sm-2">비밀번호</label>
               <div class="col-sm-3">
-                   <input name="password" type="password" class="form-control" placeholder="password" required>
+                   <input name="password" type="password" class="form-control" placeholder="Password" required>
               </div>
         </div>
         
         <div class="form-group row">
-              <label class="col-sm-2">비밀번호확인</label>
+              <label class="col-sm-2">비밀번호(확인)</label>
               <div class="col-sm-3">
-                   <input name="password_confirm" type="password" class="form-control" placeholder="password confirm" required>
+                   <input name="password_confirm" type="password" class="form-control" placeholder="Password Confirm" required>
               </div>
         </div>
         <div class="form-group row">
-              <label class="col-sm-2">성명</label>
+              <label class="col-sm-2">이름</label>
               <div class="col-sm-3">
-                   <input name="name" type="text" class="form-control" placeholder="name" required>
+                   <input name="name" type="text" class="form-control" placeholder="Name" required>
               </div>
         </div>
                       

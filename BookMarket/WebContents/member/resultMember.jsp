@@ -11,7 +11,7 @@
 <div class="row">
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
-  <h2 id="company"><b>백두도서</b></h2>
+  <h2 id="company"><b>수정 완료</b></h2>
   <hr>
 <pre>
 
@@ -36,6 +36,9 @@
             	  out.print("<h2 class='alert alert-secondary'>회원정보가 삭제되었습니다.</h2>");
             }  */     
       %>
+      <div class="container">
+  		<p><a href="../welcome.jsp" class="btn btn-outline-secondary">&laquo; HOME</a>
+ 	</div>
   </div>
 <div class="col-sm-1"></div>
 </div>
@@ -43,6 +46,7 @@
 <pre>
 
 </pre>
+
 <%@ include file="../footer.jsp" %>
 </body>
 </html>
