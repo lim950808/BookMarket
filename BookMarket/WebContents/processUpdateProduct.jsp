@@ -9,7 +9,7 @@
 request.setCharacterEncoding("UTF-8");
 //upload처리
 String filename = "";
-String realFolder = "c:\\Images";//웹 어플리케이션상의 절대 경로
+String realFolder = "c:\\Image";//웹 어플리케이션상의 절대 경로
 int maxSize = 5 * 1024 * 1024;//5mb - 전송될 파일의 최대 크기
 String encType = "utf-8";
 //MultipartRequest객체 생성
@@ -53,12 +53,13 @@ if(fileName!=null){//수정된 파일이 전송된 경우
 	pstmt = conn.prepareStatement(sql);
 	int i=0;
 	pstmt.setString(++i,pname);
+	pstmt.setString(++i,pwriter);
 	pstmt.setInt(++i,price);
-	pstmt.setString(++i,description);
-	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,category);
-	pstmt.setLong(++i,stock);
+	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,publishDate);
+	pstmt.setString(++i,description);
+	pstmt.setLong(++i,stock);
 	pstmt.setString(++i,fileName);
 	pstmt.setString(++i,productId);
 	
@@ -72,13 +73,16 @@ if(fileName!=null){//수정된 파일이 전송된 경우
 	pstmt = conn.prepareStatement(sql);
 	int i=0;
 	pstmt.setString(++i,pname);
+	pstmt.setString(++i,pwriter);
 	pstmt.setInt(++i,price);
-	pstmt.setString(++i,description);
-	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,category);
-	pstmt.setLong(++i,stock);
+	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,publishDate);
+	pstmt.setString(++i,description);
+	pstmt.setLong(++i,stock);
+	pstmt.setString(++i,fileName);
 	pstmt.setString(++i,productId);
+	
 	pstmt.executeUpdate();	
 }
 

@@ -192,7 +192,7 @@ function confirm(){
               <div class="col-sm-3">
                    <input type="button" value="이메일 인증"  class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">
                    <input class="form-control" name="cert" type="password" id="cert" value="" readonly>
-                   <input class="form-control" name="cert_confirm" id="cert_confirm" type="password" value="">
+                   <input class="form-control" name="cert_confirm" id="cert_confirm" type="password" placeholder="인증 코드" value="">
                    <input type="button" value="확인" class="btn btn-outline-success" onclick="confirm()">
               </div>
         </div>

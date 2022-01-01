@@ -10,7 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
-<fmt:bundle basename="resourceBundle.message">
 <title><fmt:message key="editTitle"/></title>
 <script>
 function deleteConfirm(id){
@@ -35,11 +34,16 @@ $(document).ready(function(){
 %>
 <body>
 <jsp:include page="menu.jsp"/>
-<div class="jumbotron">
-  <div class="container">
-     <h1 class="display-3"><fmt:message key="editTitle"/></h1>
-  </div>
-</div>
+<fmt:bundle basename="resourceBundle.message">
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+     <h2><b><fmt:message key="editTitle"/></b></h2>
+     <hr>
+<pre>
+
+</pre>
 <div class="container">
    <div class="row" align="center">
     <%@ include file="dbconn.jsp" %>
@@ -71,8 +75,6 @@ $(document).ready(function(){
                class="btn btn-danger" role="button" data-toggle="modal" data-target="#myModal"><fmt:message key="buttonDelete"/> &raquo;</a>
              <input type="hidden" id="pid" value="<%=rs.getString("productId")%>">                 
             <div class="container">
- 
-
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
@@ -80,7 +82,7 @@ $(document).ready(function(){
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">상품삭제</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -92,6 +94,7 @@ $(document).ready(function(){
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" id="deleteModal" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-danger" onclick='deleteConfirm("<%=rs.getString("productId")%>")'>예</button>
         </div>
         
       </div>
@@ -107,12 +110,18 @@ $(document).ready(function(){
          if(pstmt!=null) pstmt.close();
          if(conn!=null) conn.close();
        %>
-   </div>
-   <hr>   
+   </div>   
+</div>
+<div class="col-sm-1"></div>
+</div>
 </div>
 </fmt:bundle>
+<pre>
+
+</pre>
+<hr>
 <jsp:include page="footer.jsp"/>
-<div id="recentPanel" 
+<%-- <div id="recentPanel" 
      class="card bg-light mb-3" 
       style="position:fixed; max-width:18rem; top:55px; right:50px;">
   <h5 class="card-header">최근 본 상품</h5>
@@ -131,6 +140,6 @@ if(recentProducts!=null) {
 %>
     </ul>
   </div>
-</div>
+</div> --%>
 </body>
 </html>

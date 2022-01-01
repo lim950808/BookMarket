@@ -60,7 +60,7 @@ if(cookies!=null){
    <p> 주문번호: <%=shipping_cartId %>
 </div>
  <div class="container">
-  <p><a href="welcome.jsp" class="btn btn-outline-secondary">&laquo; HOME</a>
+  <p><a href="welcome.jsp" class="btn btn-outline-secondary">&laquo; Home</a>
  </div>
 </div>
 <div class="col-sm-1"></div>
@@ -68,6 +68,9 @@ if(cookies!=null){
 </div>
 <!--쿠키 삭제하기  -->
 <%
+//세션에서 장바구니 삭제
+session.invalidate();
+
 for(int i=0;i<cookies.length;i++){
 	Cookie thisCookie = cookies[i];
 	String n=thisCookie.getName();

@@ -74,13 +74,13 @@
 					<div class="form-group row">
 						<label class="col-sm-2">도서 제목</label>
 						<div class="col-sm-3">
-							<input type="text" id="name" name="name" class="form-control" value="<%=rs.getString("pname")%>">
+							<input type="text" id="pname" name="pname" class="form-control" value="<%=rs.getString("pname")%>">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-sm-2">저자</label>
 						<div class="col-sm-3">
-							<input type="text" id="writer" name="writer" class="form-control" value="<%=rs.getString("pwriter")%>">
+							<input type="text" id="pwriter" name="pwriter" class="form-control" value="<%=rs.getString("pwriter")%>">
 						</div>
 					</div>
 					<div class="form-group row">

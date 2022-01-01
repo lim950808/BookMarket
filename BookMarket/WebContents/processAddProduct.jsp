@@ -15,10 +15,10 @@
 <body>
 <%@ include file="dbconn.jsp" %>
 <%
-	request.setCharacterEncoding("UTF-8");
+	 request.setCharacterEncoding("UTF-8");
      //upload처리
      String filename = "";
-     String realFolder = "c:\\Images";//웹 어플리케이션상의 절대 경로
+     String realFolder = "c:\\Image";//웹 어플리케이션상의 절대 경로
      int maxSize = 5 * 1024 * 1024;//5mb - 전송될 파일의 최대 크기
      String encType = "utf-8";
      
@@ -31,8 +31,6 @@
     		                 new DefaultFileRenamePolicy());
    //request -> multi로 변경
    //String productId = multi.getParameter("productId");
-    
-	String productId = multi.getParameter("productId");
 	String pname = multi.getParameter("pname");
 	String pwriter = multi.getParameter("pwriter");
 	String unitPrice = multi.getParameter("unitPrice");
@@ -68,18 +66,19 @@
 	   System.out.println("seq:" + seq);
    }
    //입력처리
-   sql = "insert into product values(?,?,?,?,?,?,?,?,?)";
+   sql = "insert into product values(?,?,?,?,?,?,?,?,?,?)";
    pstmt = conn.prepareStatement(sql);
    
     int i = 0;
-	pstmt.setString(++i,productId);
+    pstmt.setString(++i,seq);
     pstmt.setString(++i,pname);
+	pstmt.setString(++i,pwriter);
 	pstmt.setInt(++i,price);
-	pstmt.setString(++i,description);
-	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,category);
-	pstmt.setLong(++i,stock);
+	pstmt.setString(++i,publisher);
 	pstmt.setString(++i,publishDate);
+	pstmt.setString(++i,description);
+	pstmt.setLong(++i,stock);
 	pstmt.setString(++i,fileName);
    
    pstmt.executeUpdate();
