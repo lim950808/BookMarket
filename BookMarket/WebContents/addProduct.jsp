@@ -11,7 +11,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text.javascript" src="./resources/js/validation.js"></script>
-<title>addProduct</title>
+<title>백두서점</title>
 </head>
 <script>
 	function chk() {
@@ -70,11 +70,17 @@
 <body>
 <fmt:bundle basename="resourceBundle.message">
 <jsp:include page="menu.jsp"/>
-<div class="jumbotron">
-  <div class="container">
-     <h1 class="display-3"><fmt:message key="title"/></h1>
-  </div>
-</div>
+<div class="container mt-5">
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+<div class="container">
+<div class="row">
+     <h2><b><fmt:message key="title"/></b></h2>
+	 <hr>
+<pre>
+
+</pre>
 <div class="container">
 	<%@ include file = "dbconn.jsp" %>
 	
@@ -172,9 +178,16 @@
 	   </div>
 	  </form>
 </div>
-</fmt:bundle>
+</div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+</div>
+</div>
+<pre>
 
-<hr>
+</pre>
+</fmt:bundle>
 <jsp:include page="footer.jsp"/>
 <script>
 	function readImage(input) {

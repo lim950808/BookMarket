@@ -69,7 +69,7 @@ if(cookies!=null){
 <!--쿠키 삭제하기  -->
 <%
 //세션에서 장바구니 삭제
-session.invalidate();
+//session.invalidate();
 
 for(int i=0;i<cookies.length;i++){
 	Cookie thisCookie = cookies[i];

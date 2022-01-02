@@ -46,7 +46,6 @@
 <pre>
 
 </pre>
-
 <%@ include file="../footer.jsp" %>
 </body>
 </html>

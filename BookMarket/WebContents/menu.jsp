@@ -38,7 +38,7 @@
 	        </li>
         </c:when>
   	    <c:otherwise>
-	  	    <li style="padding-top: 7px; color: white;">[${sessionScope.sessionId}님]</li>
+	  	    <li style="padding-top: 7px; color: dark;">[${sessionScope.sessionId}님]</li>
 	        <li class="nav-item">
 	          <a class="nav-link text-dark" href="<c:url value="/member/logoutMember.jsp"/>">로그아웃</a>
 	        </li>
@@ -58,10 +58,10 @@
 	  	  		<a class="nav-link text-dark" href="<c:url value="/addProduct.jsp"/>">상품 등록</a>
 	  	  	</li>
 	  	  	<li class="nav-item">
-	  	  		<a class="nav-link text-dark" href="<c:url value="/editProduct.jsp?edit=update"/>">상품 수정</a>
+	  	  		<a class="nav-link text-dark" href="<c:url value="/editProduct.jsp"/>">상품 수정</a>
 	  	  	</li>
 	  	  	<li class="nav-item">
-	  	  		<a class="nav-link text-dark" href="<c:url value="/editProduct.jsp?edit=delete"/>">상품 삭제</a>
+	  	  		<a class="nav-link text-dark" href="<c:url value="/editProduct.jsp"/>">상품 삭제</a>
 	  	  	</li>
 	        <li class="nav-item">
 	          <a class="nav-link text-dark">|</a>

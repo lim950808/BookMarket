@@ -106,7 +106,8 @@ function addToCart(){
 <div class="container">
   <div class="row">
      <div class="col-md-5">
-        <img src="/resources/images/<%=rs.getString("fileName")%>" style="width:100%">
+        <%-- <img src="./resources/images/<%=rs.getString("filename")%>" style="width:100%"> --%>
+        <img src="<%=rs.getString("filename")%>" style="width:100%">
      </div>
      <div class="col-md-6">
         <p class='star_rating' >

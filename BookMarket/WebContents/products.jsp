@@ -31,7 +31,8 @@
 	   <div class="row" align="center">   	
 	      <c:forEach  var="book" items="${booklist}">
 		      <div class="col-md-4">
-		        <img src="/resources/upload/${book.filename}" style="width:100%">
+		        <%-- <img src="./resources/images/${book.filename}" style="width:100%"> --%>
+		        <img src="${book.filename}" style="width:100%">
 		        <h3>${book.pname}</h3>
 		        <p>${book.description}</p>
 		        <p>${book.unitPrice}원</p>

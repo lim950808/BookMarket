@@ -74,7 +74,7 @@
             <div class="col-4" align="left">
                <strong>배송주소</strong><br>이름: <%=shipping_name%><br>
                우편번호: <%=shipping_zipCode %><br>
-               주소: <%=shipping_roadAddress %><%=shipping_detailAddress %><br>
+               주소: <%=shipping_roadAddress %> <%=shipping_detailAddress %><br>
             </div>
             <div class="col-4" align="right">
                 <p><em>예상 배송일: </em><%=shipping_shippingDate %></p>
