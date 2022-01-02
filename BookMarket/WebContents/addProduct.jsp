@@ -1,5 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="com.mysql.cj.xdevapi.PreparableStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -7,13 +8,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text.javascript" src="./resources/js/validation.js"></script>
 <title>백두서점</title>
 </head>
-<script>
+<!-- <script>
 	function chk() {
 		var productId = document.getElementById("productId");
 		var unitPrice = document.getElementById("unitPrice");
@@ -65,7 +67,7 @@
 		e.focus();
 		return false;
 	}
-</script>
+</script> -->
 
 <body>
 <fmt:bundle basename="resourceBundle.message">
@@ -115,14 +117,14 @@
 	         <input type="text" name="unitPrice" id="unitPrice" class="form-control" required>
 	       </div>
 	   </div>
-	   <%
+	   <%-- <%
 		PreparedStatement pstmt = conn.prepareStatement("select publisher, name from publisher");
 		ResultSet rs = pstmt.executeQuery();
-	   %>
+	   %> --%>
 	  <div class="form-group row">
 	       <label class="col-sm-2"><fmt:message key="category"/></label>
 	       <div class="col-sm-3">
-		       <select name="category" class="form-control" required>
+		       <%-- <select name="category" class="form-control" required>
 		       		<%
 			       		pstmt = conn.prepareStatement("select category, name from category");
 			    		rs = pstmt.executeQuery();
@@ -130,19 +132,21 @@
 		       				out.print("<option value='" + rs.getString(1) + "'>" + rs.getString(2) + "</option>");
 		       			}
 		       		%>
-		       	</select>
+		       	</select> --%>
+		       	<input type="text" name="category" class="form-control" required>
 	       </div>
 	   </div>
 	   <div class="form-group row">
 	       <label class="col-sm-2"><fmt:message key="publisher"/></label>
 	       <div class="col-sm-3">
-		       	<select name="publisher" class="form-control" required>
+		       	<%-- <select name="publisher" class="form-control" required>
 		       		<%
 		       			while(rs.next()) {
 		       				out.print("<option value=" + rs.getString(1) + ">" + rs.getString(2) + "</option>");
 		       			}
 		       		%>
-		       	</select>
+		       	</select> --%>
+		       	<input type="text" name="publisher" class="form-control" required>
 	       </div>
 	   </div>
 	   <div class="form-group row">

@@ -56,17 +56,17 @@
    //상품등록
    
    //seq Max값 추출
-   String sql = "select cast(substr(max(productId), 2) as signed integer) + 1 from product";
+   String sql = "select cast(substr(max(productId), 2) as signed integer) + 1 from BookMarket.product";
    
    PreparedStatement pstmt = conn.prepareStatement(sql);
    ResultSet rs = pstmt.executeQuery();
    String seq = "";
    if(rs.next()) {
-	   seq = "P" + rs.getString(1);
+	   seq = "A" + rs.getString(1);
 	   System.out.println("seq:" + seq);
    }
    //입력처리
-   sql = "insert into product values(?,?,?,?,?,?,?,?,?,?)";
+   sql = "insert into BookMarket.product values(?,?,?,?,?,?,?,?,?,?)";
    pstmt = conn.prepareStatement(sql);
    
     int i = 0;

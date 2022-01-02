@@ -53,7 +53,7 @@
         <li class="nav-item">
           <a class="nav-link text-dark">|</a>
         </li>
-        <c:if test="${sessionId=='admin'}">
+        <c:if test="${sessionId == 'admin'}">
 	  	  	<li class="nav-item">
 	  	  		<a class="nav-link text-dark" href="<c:url value="/addProduct.jsp"/>">상품 등록</a>
 	  	  	</li>
