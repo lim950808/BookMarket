@@ -56,7 +56,7 @@ $(document).ready(function(){
         while(rs.next()){   
       %>
       <div class="col-md-4">
-        <img src="/resources/upload/<%=rs.getString("fileName")%>"  style="width:100%">
+        <img src="<%=rs.getString("filename")%>"  style="width:100%">
         <h3><%=rs.getString("pname") %></h3>
         <p><%=rs.getString("description") %></p>
         <p><fmt:formatNumber value='<%=rs.getInt("unitPrice") %>'/>원</p>
